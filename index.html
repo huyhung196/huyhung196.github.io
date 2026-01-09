@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 80px 24px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 16px 0;
+      color: #e5e7eb;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: white;
+      color: var(--primary);
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      margin: auto;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* About */
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .project-thumb {
+      height: 160px;
+      background: linear-gradient(135deg, #c7d2fe, #93c5fd);
+    }
+
+    .project-body {
+      padding: 20px;
+    }
+
+    .project-body h3 {
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero container">
+    <div>
+      <h1>Xin chào, tôi là Frontend Developer</h1>
+      <p>Chuyên xây dựng giao diện web hiện đại, tối ưu trải nghiệm người dùng và hiệu năng.</p>
+      <a href="#projects" class="btn">Xem dự án</a>
+    </div>
+    <div class="avatar" style="background: url('avatar_huyhung.jpg') center/cover;"></div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Giới thiệu</h2>
+    <p class="about">
+      Tôi là một lập trình viên Frontend với kinh nghiệm làm việc cùng HTML, CSS, JavaScript và các framework hiện đại.
+      Mục tiêu của tôi là tạo ra các sản phẩm có giao diện đẹp, responsive và dễ bảo trì.
+    </p>
+  </div>
+</section>
+
+<section style="background:#f1f5f9">
+  <div class="container">
+    <h2>Kỹ năng</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>HTML5 & CSS3</h3>
+        <p>Semantic HTML, Flexbox, Grid, Responsive Design</p>
+      </div>
+      <div class="skill-card">
+        <h3>JavaScript</h3>
+        <p>ES6+, DOM, Fetch API</p>
+      </div>
+      <div class="skill-card">
+        <h3>React</h3>
+        <p>Hooks, Component-based UI</p>
+      </div>
+      <div class="skill-card">
+        <h3>UI/UX</h3>
+        <p>Thiết kế giao diện thân thiện người dùng</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>Dự án tiêu biểu</h2>
+    <div class="projects">
+      <div class="project-card">
+        <div class="project-thumb"></div>
+        <div class="project-body">
+          <h3>Task Manager App</h3>
+          <p>Ứng dụng quản lý công việc cá nhân với React và LocalStorage.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"></div>
+        <div class="project-body">
+          <h3>E-Commerce UI</h3>
+          <p>Giao diện website bán hàng, tối ưu mobile-first.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"></div>
+        <div class="project-body">
+          <h3>Dashboard Analytics</h3>
+          <p>Trang dashboard hiển thị dữ liệu với biểu đồ và layout hiện đại.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f1f5f9">
+  <div class="container contact">
+    <h2>Liên hệ</h2>
+    <p>Email: example@email.com</p>
+    <p>GitHub: github.com/username</p>
+    <p>LinkedIn: linkedin.com/in/username</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Frontend Developer Portfolio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
