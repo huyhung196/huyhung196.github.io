@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cao Huy Hung | Backend Engineer &amp; AI Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow-cyan:hover {
+            box-shadow: 0 0 20px rgba(0, 219, 231, 0.3);
+            border-color: rgba(0, 219, 231, 0.5);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 8px rgba(0, 219, 231, 0.4);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #051424;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c2b3c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00dbe7;
+        }
+        .showcase-num {
+            -webkit-text-stroke: 1px rgba(0, 219, 231, 0.1);
+            color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c3c6d6",
+                        "primary-fixed-dim": "#00dbe7",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#434653",
+                        "secondary": "#d0bcff",
+                        "tertiary-fixed": "#dfe2f2",
+                        "on-primary": "#00363a",
+                        "on-tertiary-fixed": "#171b27",
+                        "on-secondary": "#3c0091",
+                        "inverse-surface": "#d4e4fa",
+                        "on-tertiary": "#2c303c",
+                        "on-background": "#d4e4fa",
+                        "outline-variant": "#3a494b",
+                        "primary-container": "#00f2ff",
+                        "surface-container-lowest": "#010f1f",
+                        "surface-container": "#122131",
+                        "on-primary-container": "#006a71",
+                        "on-primary-fixed-variant": "#004f54",
+                        "on-primary-fixed": "#002022",
+                        "on-surface-variant": "#b9cacb",
+                        "background": "#051424",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "secondary-container": "#571bc1",
+                        "secondary-fixed": "#e9ddff",
+                        "inverse-on-surface": "#233143",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#00dbe7",
+                        "tertiary": "#f7f6ff",
+                        "surface-variant": "#273647",
+                        "surface": "#051424",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#5c5f6d",
+                        "surface-bright": "#2c3a4c",
+                        "surface-container-high": "#1c2b3c",
+                        "surface-container-low": "#0d1c2d",
+                        "on-secondary-container": "#c4abff",
+                        "primary": "#e1fdff",
+                        "on-secondary-fixed": "#23005c",
+                        "surface-container-highest": "#273647",
+                        "surface-dim": "#051424",
+                        "primary-fixed": "#74f5ff",
+                        "outline": "#849495",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#00696f",
+                        "on-surface": "#d4e4fa",
+                        "tertiary-container": "#d7daea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["IBM Plex Sans"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "display": ["IBM Plex Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/30 backdrop-blur-[12px] border-b border-white/10 shadow-[0_0_20px_rgba(0,219,231,0.1)]">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-desktop py-4">
+<a class="font-headline-md text-headline-md font-bold text-primary-fixed-dim" href="#">Hung.dev</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1 font-label-mono text-label-mono uppercase tracking-wider" href="#home">Home</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-wider" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-wider" href="#skills">Skills</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300 font-label-mono text-label-mono uppercase prefix tracking-wider" href="#experience">Experience</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-wider" href="#projects">Projects</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-wider" href="#contact">Contact</a>
+</nav>
+<a class="px-6 py-2 bg-primary-fixed-dim text-on-primary-fixed font-label-mono text-label-mono rounded-lg hover:shadow-[0_0_15px_rgba(0,219,231,0.5)] active:scale-95 transition-all" href="#">Download CV</a>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col justify-center items-center text-center px-margin-mobile md:px-margin-desktop overflow-hidden pt-20" id="home">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,219,231,0.05),transparent_70%)]"></div>
+<div class="z-10 max-w-4xl"><div class="mb-8 flex justify-center">
+<div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1 bg-gradient-to-tr from-primary-fixed-dim to-transparent shadow-[0_0_30px_rgba(0,219,231,0.2)]">
+<img alt="Cao Huy Hung Profile" class="w-full h-full object-cover rounded-full border-2 border-background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpDsE6RthaD5_Vvmy3CZ35AOjZni4URhp07_i8UG2mZxz9bmcREgwZ7jAhNwCveTbhRdIwQ4bfgoCBEaYDXhKX9MLzqh2QeSIj5RGtLtzqoO4PYpRo_fzj4sOSS3rBgsHhccfnS4S-of7aJbAGnApcKKg3aO2I2LfjcjlM-nNlJzWSkVTjYqq_6j7aCtkVwMbAwYNy4A1OGQBHR0gJjHTqJL4ZdGW-jDK8rDXAVDHOabv9wvCDir_9tbWYD8RmToSf83Jw2HE5cmo"/>
+<div class="absolute bottom-2 right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-background animate-pulse"></div>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em] block mb-6">System Architect &amp; Intelligence Designer</span>
+<h1 class="font-display text-display md:text-[80px] leading-tight mb-8">
+                    Cao Huy <span class="text-primary-fixed-dim text-glow-cyan">Hung</span>
+</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    Backend Engineer | AI Developer crafting high-performance distributed systems and sophisticated AI-driven solutions.
+                </p>
+<div class="flex flex-wrap justify-center gap-6 mb-16">
+<a class="px-8 py-4 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded hover:shadow-[0_0_25px_rgba(0,219,231,0.4)] transition-all" href="#projects">View Projects</a>
+<a class="px-8 py-4 border border-primary-fixed-dim text-primary-fixed-dim font-bold rounded hover:bg-primary-fixed-dim/5 transition-all" href="#contact">Contact Me</a>
+</div>
+<div class="flex justify-center gap-8 text-on-surface-variant">
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span> GitHub
+                    </a>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span> LinkedIn
+                    </a>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span> Email
+                    </a>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-[120px] max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop" id="about">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-8 text-primary-fixed-dim flex items-center gap-4">
+<span class="h-px w-12 bg-primary-fixed-dim"></span>
+                        Executive Summary
+                    </h2>
+<div class="space-y-6 text-on-surface-variant text-body-lg">
+<p>
+                            I specialize in engineering performance-optimized backend architectures and advanced AI systems. My approach combines the rigor of classical software engineering with the cutting-edge potential of Large Language Models and Computer Vision.
+                        </p>
+<p>
+                            With a focus on stability, scalability, and technical mastery, I transform complex data challenges into streamlined, intelligent services that power modern digital ecosystems.
+                        </p>
+</div>
+</div>
+<div class="relative">
+<div class="glass-card p-4 rounded-xl rotate-3 hover:rotate-0 transition-transform duration-500">
+<img alt="Code on screen" class="rounded-lg grayscale hover:grayscale-0 transition-all duration-700" data-alt="A macro close-up of a high-resolution monitor displaying clean, colorful Python and SQL code in a dark mode integrated development environment. The lighting is moody with hints of neon cyan reflecting off the screen's surface. The shallow depth of field keeps the focus on the foreground syntax highlighting, creating a sophisticated and technical atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9FSTf-4lhAceI2a1AWbR_aJ0-VfJs6aA68i9e1itrh_PY0b26G9rOx2tzz1vPvQtcMhMdwSg2kxLjzTvuO8RSRccEzmYJKGc2r7sPvG4Un-HObhV3fADIIUkmfAsa9xhpJJifhWVQ1j1Tl7zDInwiEK1AUQdT8g6e-vLROVQjS2d7CfMtZb0JXbeBthQArHbuqvUTu6E-8DWL7OscIpowN2XTA6pAsxDbVFOSvGO_CmWRXgyUs-6PB2juTooSxXEiIhNgFu0xtqU"/>
+</div>
+<div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-lg neon-glow-cyan">
+<span class="font-label-mono text-display text-primary-fixed-dim block">4+</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Core Tech Domains</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section - Bento Grid -->
+<section class="py-[120px] bg-surface-container-low/30" id="skills">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg mb-16 text-center text-primary-fixed-dim">Technical Stack</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<!-- Languages -->
+<div class="glass-card p-8 rounded-xl neon-glow-cyan md:col-span-2">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-4" data-icon="code">code</span>
+<h3 class="font-headline-md text-headline-md mb-4">Core Languages</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">Python</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">JavaScript</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">SQL</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">HTML/CSS</span>
+</div>
+</div>
+<!-- AI & ML -->
+<div class="glass-card p-8 rounded-xl neon-glow-cyan">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-4" data-icon="psychology">psychology</span>
+<h3 class="font-headline-md text-headline-md mb-4">AI &amp; ML</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">RAG</span>
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">YOLO</span>
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">PyTorch</span>
+</div>
+</div>
+<!-- Backend Frameworks -->
+<div class="glass-card p-8 rounded-xl neon-glow-cyan">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-4" data-icon="dns">dns</span>
+<h3 class="font-headline-md text-headline-md mb-4">Backend</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">Django</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">FastAPI</span>
+</div>
+</div>
+<!-- Data & DB -->
+<div class="glass-card p-8 rounded-xl neon-glow-cyan lg:col-span-2">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-4" data-icon="database">database</span>
+<h3 class="font-headline-md text-headline-md mb-4">Data &amp; Infrastructure</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">PostgreSQL</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">Redis</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">ChromaDB</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">Docker</span>
+<span class="px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/20 rounded font-label-mono text-xs text-primary-fixed-dim">Celery</span>
+</div>
+</div>
+<!-- AI Tools -->
+<div class="glass-card p-8 rounded-xl neon-glow-cyan md:col-span-2">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-4" data-icon="smart_toy">smart_toy</span>
+<h3 class="font-headline-md text-headline-md mb-4">Intelligence Tools</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">LangChain</span>
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">CrewAI</span>
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">Ollama</span>
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded font-label-mono text-xs text-secondary">ONNX</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-[120px] max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop" id="experience">
+<h2 class="font-headline-lg text-headline-lg mb-16 text-primary-fixed-dim">Professional Experience</h2>
+<!-- High-Tech Feature Showcase for Mebisoft -->
+<div class="space-y-32 mb-32">
+<!-- Project 1: AI Virtual Assistant -->
+<div class="relative group">
+<div class="absolute -top-20 -left-10 text-[120px] font-bold showcase-num leading-none opacity-20 pointer-events-none font-display">01</div>
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1">
+<div class="mb-6">
+<span class="font-label-mono text-primary-fixed-dim uppercase tracking-widest text-xs mb-2 block">Mebisoft | 2023 - Present</span>
+<h3 class="text-display text-headline-lg text-white mb-4">AI Virtual Assistant</h3>
+</div>
+<div class="space-y-6 text-on-surface-variant text-body-lg">
+<p>Implemented a next-generation conversational agent using state-of-the-art retrieval mechanisms.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-1" data-icon="check_circle">check_circle</span>
+<span>Engineered RAG architecture for semantic document retrieval.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-1" data-icon="check_circle">check_circle</span>
+<span>Developed Text-to-SQL logic for natural language querying.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-1" data-icon="check_circle">check_circle</span>
+<span>Integrated Vector DBs for low-latency context injection.</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 flex flex-wrap gap-3">
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">LangChain</span>
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">ChromaDB</span>
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">PostgreSQL</span>
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">FastAPI</span>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="glass-card p-4 rounded-2xl relative border-primary-fixed-dim/20 hover:border-primary-fixed-dim/50 transition-colors shadow-[0_0_40px_rgba(0,219,231,0.05)]">
+<div class="grid grid-cols-1 gap-4">
+<img alt="AI Assistant Interface" class="rounded-xl w-full border border-white/10" src="https://lh3.googleusercontent.com/aida/ADBb0uifkb9JOde02nUtz-Px123e0bs_01okFnOsnT2CqpKpGMVijFhoSluTy0U7Z9GWKrHK8CBriJ8BHADaxHKrFhVZfNxzWMNktTz41vcO8ea9u9MGhCayuyJgvnWe9V0U61Klr3c1xish5RlEcati3rwHcA-gTIXTOfBZmaMdRPKHnRi1GPpekmeyRwDw50m2V4q0LCUMeqf4fMYaPqZTKZplSmbbkE7KKkMVcezPhfFUXpHi535_Wckftfc"/>
+<img alt="RAG Architecture" class="rounded-xl w-full border border-white/10" src="https://lh3.googleusercontent.com/aida/ADBb0ujOD8fOVd_-3-b6eryTiLfGU49V-kGE95XHHYhj38xDlWy3tDBsXXrkoKooyQiFGYmoO0qved1s2wxT_AlJoBOu3ubUl1SUOx24vBXYAfV5ZZn09t_97_Kw-HEfZNGrs_aLqW4NMxF-dkXJ648pcsy0N6psusnz3BDVKDcHXins-qEBphxfbT97phooHuWJ2j_fkLnXZ_A785myIpma7ToINmg3Unx56zw3r3oj9ZTR3NKEFwDuiXxQHp4"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2: Distributed CV System -->
+<div class="relative group">
+<div class="absolute -top-20 -right-10 text-[120px] font-bold showcase-num leading-none opacity-20 pointer-events-none font-display">02</div>
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="lg:order-1">
+<div class="glass-card p-4 rounded-2xl relative border-primary-fixed-dim/20 hover:border-primary-fixed-dim/50 transition-colors shadow-[0_0_40px_rgba(0,219,231,0.05)]">
+<div class="grid grid-cols-1 gap-4">
+<img alt="Object Detection Visualization" class="rounded-xl w-full border border-white/10" src="https://lh3.googleusercontent.com/aida/ADBb0uhfXYXmk6xup80EU3rkHfm6st62n3YAK_AXY0VgpqF-cysIlAgjVppznhreJvrarsvTIYS2tq0WW9Y7XiE3kUYGUoMC0k9qxzmOhWxtvdYybZmB_rgMQIpG90zKkchcM8buNkAj4VL6Y9KtS71ZcmKyaGAI7zCFuaFIKBqCX56hzHSeCTZo7Bg8vkUr3KwoobbTBJFRlxP1moduk9-xkn-t7-gkbNCX6Tkv2ZJ2q0NeFRBo_y9czdEzGug"/>
+<img alt="Distributed CV Pipeline" class="rounded-xl w-full border border-white/10" src="https://lh3.googleusercontent.com/aida/ADBb0ujtzIiULXs1uiQxp-SkUrwolv_wgstZN8roUaZTZdlC-19qRtnDwIFXZyfBpS0DYR3wJSih1pp76uCYLwMNWC5DYvssrUoGITZoatWvKfYag7P2Y1OXTEoqoz7hIIGm8Z4j5HJDDFwqkYc2QTuONG1zOG4rO4kQhd1ekfxbuaPuhWURmPw5bzkQA3vpld3mkZAAiio_6tGnfIcePIIA4isQyKzGDR2GK1SDTLVRicVfKq9yBAwQwL2rT-A"/>
+</div>
+</div>
+</div>
+<div class="lg:order-2">
+<div class="mb-6">
+<span class="font-label-mono text-primary-fixed-dim uppercase tracking-widest text-xs mb-2 block">Mebisoft | 2023 - Present</span>
+<h3 class="text-display text-headline-lg text-white mb-4">Distributed CV System</h3>
+</div>
+<div class="space-y-6 text-on-surface-variant text-body-lg">
+<p>Scalable computer vision infrastructure designed for real-time edge and cloud inference.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-1" data-icon="check_circle">check_circle</span>
+<span>Optimized YOLO models using ONNX for high-performance inference.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-1" data-icon="check_circle">check_circle</span>
+<span>Architected distributed image processing message-driven pipelines.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-1" data-icon="check_circle">check_circle</span>
+<span>Reduced latency by 40% using asynchronous worker clusters.</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 flex flex-wrap gap-3">
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">YOLO</span>
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">ONNX</span>
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">Redis</span>
+<span class="px-4 py-2 glass-card rounded font-label-mono text-xs text-primary-fixed-dim">Docker</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Simplified Timeline for Previous Roles -->
+<div class="relative max-w-4xl mx-auto border-t border-white/10 pt-16">
+<div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
+<div class="md:w-1/3">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim">2022 - 2023</span>
+<h3 class="font-headline-md text-headline-md mt-2 text-white">Python Developer</h3>
+<p class="text-on-surface-variant font-bold">UTH</p>
+</div>
+<div class="md:w-2/3">
+<div class="glass-card p-6 rounded-xl border-white/5">
+<ul class="text-on-surface-variant space-y-2 list-none">
+<li>Engineered RESTful APIs with complex business logic.</li>
+<li>Implemented system observability with <span class="text-primary-fixed-dim">OpenTelemetry</span>.</li>
+<li>Managed asynchronous tasks using <span class="text-primary-fixed-dim">Celery &amp; RabbitMQ</span>.</li>
+<li>Containerized applications for resilient production deployment.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-[120px] bg-surface-container-low/30" id="projects">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary-fixed-dim">Selected Projects</h2>
+<p class="text-on-surface-variant mt-4">Showcasing end-to-end technical execution.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-1 gap-12">
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col lg:flex-row group">
+<div class="lg:w-1/2 overflow-hidden">
+<img alt="TranSportCOM Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" data-alt="A sophisticated digital dashboard showing logistics and transportation data visualizations. The UI features sleek charts, maps with highlighted routes, and data grids in a dark, high-contrast theme. The dominant colors are charcoal and electric cyan, with subtle glows on interactive elements, conveying a sense of complex system management and precision engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3cddiiiWBnbffjKD3x8g_ERkRmGHcQcL9BVain3je62ikCMvmUEoWd0yM122fZomj9gQPJ36egGBh3Or4uouOIhVjtb7PIHgU_Vpm3VQVOQoTJ511lGUpuRMNw0jR5WNPo1RuSDFM0fzdazkYanhJZ0RvYr_vVYCI8i29uxuMl0RzJKx-IAxR-h86G5rnbQr2GYCzk7-o_2l9-4EH_38u9BJTBntxam-rIBRbLzwlR1lKhvGyqMruBwOHFUO6i7JrU_xg273YXkY"/>
+</div>
+<div class="lg:w-1/2 p-12 flex flex-col justify-center">
+<h3 class="font-display text-headline-lg mb-6 text-primary-fixed-dim">TranSportCOM</h3>
+<p class="text-on-surface-variant text-body-lg mb-8">
+                                A comprehensive logistics management platform designed for scale. Features real-time tracking, complex resource scheduling, and an intuitive management dashboard.
+                            </p>
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div>
+<h4 class="font-label-mono text-label-mono text-on-surface uppercase mb-2">Core Tech</h4>
+<p class="text-on-surface-variant">Django, Vue.js, Docker</p>
+</div>
+<div>
+<h4 class="font-label-mono text-label-mono text-on-surface uppercase mb-2">Key Feature</h4>
+<p class="text-on-surface-variant">Automated Scheduling</p>
+</div>
+</div>
+<div class="flex gap-4">
+<a class="px-6 py-3 border border-primary-fixed-dim text-primary-fixed-dim rounded hover:bg-primary-fixed-dim/10 transition-all flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span> Live Demo
+                                </a>
+<a class="px-6 py-3 bg-white/5 rounded hover:bg-white/10 transition-all flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span> Source
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Section -->
+<section class="py-[120px] max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card p-12 rounded-2xl flex flex-col md:flex-row items-center gap-12 border-l-4 border-l-primary-fixed-dim">
+<div class="p-6 bg-primary-fixed-dim/10 rounded-full">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[48px]" data-icon="school">school</span>
+</div>
+<div class="flex-grow text-center md:text-left">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase">Formal Education</span>
+<h3 class="font-headline-lg text-headline-lg mt-2">Bachelor of Information Technology</h3>
+<p class="text-on-surface-variant text-body-lg">Sai Gon University</p>
+</div>
+<div class="text-center md:text-right">
+<span class="block font-display text-headline-lg text-primary-fixed-dim">7.04 / 10</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">GPA Rank</span>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-[120px] max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop border-t border-white/5" id="contact">
+<div class="grid lg:grid-cols-2 gap-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-8 text-primary-fixed-dim">Get In Touch</h2>
+<p class="text-on-surface-variant text-body-lg mb-12">
+                        I am currently open to new opportunities and technical collaborations. Whether you have a question or just want to discuss backend architecture, my inbox is always open.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 glass-card rounded flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<span class="block text-on-surface-variant text-sm uppercase font-label-mono">Email</span>
+<a class="text-body-lg hover:text-primary-fixed-dim transition-colors" href="mailto:hung.cao.dev@example.com">hung.cao.dev@example.com</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 glass-card rounded flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<span class="block text-on-surface-variant text-sm uppercase font-label-mono">Contact</span>
+<span class="text-body-lg">+84 123 456 789</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 glass-card rounded flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<span class="block text-on-surface-variant text-sm uppercase font-label-mono">Based In</span>
+<span class="text-body-lg">Ho Chi Minh City, Vietnam</span>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-2xl">
+<form class="space-y-6">
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface mb-2">FULL NAME</label>
+<input class="w-full bg-[#05070A] border border-white/10 rounded-lg p-4 focus:border-primary-fixed-dim focus:ring-2 focus:ring-primary-fixed-dim/20 transition-all outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface mb-2">EMAIL ADDRESS</label>
+<input class="w-full bg-[#05070A] border border-white/10 rounded-lg p-4 focus:border-primary-fixed-dim focus:ring-2 focus:ring-primary-fixed-dim/20 transition-all outline-none" placeholder="john@example.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface mb-2">MESSAGE</label>
+<textarea class="w-full bg-[#05070A] border border-white/10 rounded-lg p-4 focus:border-primary-fixed-dim focus:ring-2 focus:ring-primary-fixed-dim/20 transition-all outline-none" placeholder="Hello, I'd like to talk about..." rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg hover:shadow-[0_0_20px_rgba(0,219,231,0.4)] transition-all" type="submit">
+                            Initialize Transmission
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-white/5">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center px-margin-desktop">
+<div class="mb-8 md:mb-0">
+<a class="font-label-mono text-label-mono text-primary-fixed-dim" href="#">Hung.dev</a>
+<p class="text-on-surface-variant font-body-md mt-2">© 2024 Cao Huy Hung. Engineered with precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Source Code</a>
+</div>
+</div>
+</footer>
+</body></html>

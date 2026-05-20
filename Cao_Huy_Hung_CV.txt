@@ -1,0 +1,49 @@
+Cao Huy Hung
+GitHub: hung.1906 | LinkedIn: hunghuycao | Email: huyhungdp@gmail.com | Phone: 033 969 1906
+
+SUMMARY
+I'm a Backend Engineer with a solid understanding of AI, experienced in building scalable and high-performance backend systems. I specialize in developing and maintaining distributed infrastructures while integrating AI solutions such as Deep Learning models (Computer Vision, Generative AI) into real-world applications. I have a strong focus on system performance optimization (latency/throughput), large-scale data processing, and delivering reliable, production-ready systems powered by AI.
+
+EDUCATION
+Sai Gon University | 2021 - 2025
+Bachelor of Information Technology | GPA: 7.04/10
+
+SKILLS
+Programming Languages: Python, JavaScript
+Backend Frameworks: FastAPI, Django, Flask
+AI & ML: Ultralytics, LLMs, RAG Architecture, Text-to-SQL, ONNX Runtime, OpenCV, Graph Algorithms
+Data & Database: PostgreSQL, MySQL, Redis, SQL Optimization, Azure Blob Storage
+Messaging & Queues: Azure Service Bus, RabbitMQ, Celery
+Infrastructure: Docker, NVIDIA CUDA, Linux, Git, OpenTelemetry
+AI Tools: Cursor, Antigravity, Claude Code, Stitch UI
+English: TOEIC 450 (Listening & Reading)
+
+EXPERIENCE
+Mebisoft | 01/2026 - Present
+AI Developer | AI Team (Trainee - Sublead)
+End-to-end AI Engineer: from backend system design to deploying and optimizing production AI systems (Generative AI & Computer Vision).
+
+Project 1: AI Virtual Assistant (Mebieco AI Chatbot)
+- Designed a hybrid AI architecture combining RAG for unstructured knowledge retrieval and Text-to-SQL (Vanna.ai) for structured database querying.
+- Built vector search on PostgreSQL (pgvector + HNSW) with context-aware chunking; async backend via FastAPI + Redis for chat memory and AI orchestration via Function Calling.
+- Implemented observability tools to monitor token usage and pipeline latency, improving debugging and system transparency.
+
+Project 2: Distributed Computer Vision System (Mebieco-AI CV)
+- Deployed YOLO (v8/v11) for instance segmentation and high-density object counting (up to ~3,000 objects/image).
+- Engineered measurement algorithms using Graph Theory & Skeletonization with ArUco markers calibration; architected distributed processing via Azure Service Bus.
+- Optimized inference with ONNX Runtime (FP16) on GPU (CUDA) and batch processing, significantly improving throughput.
+
+Tech Stack: FastAPI, Python (Asyncio), Azure OpenAI, YOLO, ONNX Runtime, PostgreSQL (pgvector), Redis, Azure Service Bus, Docker, CUDA
+
+University of Transport Ho Chi Minh City (UTH) | 04/2025 - 09/2025
+Python Developer - Django | Library Information Center
+- Built and optimized APIs, microservices, and backend systems for the library management platform.
+- Implemented trace, log, and metrics systems using OpenTelemetry for enhanced monitoring and debugging.
+- Implemented asynchronous task processing using Celery and RabbitMQ to enhance scalability.
+
+PROJECTS
+TranSportCOM | Fullstack - Vue.js, Django, Docker | UTH, 05/2025 - 08/2025
+- Web-based bus ticket booking system for trip search, seat selection, and online booking.
+- Designed RESTful APIs using Django to manage trips, schedules, bookings, and user data.
+- Built a responsive Vue.js frontend with component-based architecture and efficient state management.
+- Developed core features: user authentication, seat selection, and payment processing.

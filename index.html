@@ -1,267 +1,343 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Frontend Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2563eb;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --gray: #64748b;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 24px;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 80px 24px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 700;
-    }
-
-    .hero p {
-      margin: 16px 0;
-      color: #e5e7eb;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background: white;
-      color: var(--primary);
-      border-radius: 8px;
-      font-weight: 600;
-      margin-top: 16px;
-    }
-
-    .avatar {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: #e5e7eb;
-      margin: auto;
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
-    section h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    /* About */
-    .about {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      color: var(--gray);
-    }
-
-    /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-    }
-
-    .skill-card {
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    .skill-card h3 {
-      margin-bottom: 8px;
-    }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-
-    .project-thumb {
-      height: 160px;
-      background: linear-gradient(135deg, #c7d2fe, #93c5fd);
-    }
-
-    .project-body {
-      padding: 20px;
-    }
-
-    .project-body h3 {
-      margin-bottom: 8px;
-    }
-
-    .project-body p {
-      font-size: 14px;
-      color: var(--gray);
-    }
-
-    /* Contact */
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      color: var(--gray);
-      margin-bottom: 16px;
-    }
-
-    footer {
-      background: #020617;
-      color: #94a3b8;
-      text-align: center;
-      padding: 24px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero h1 { font-size: 32px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cao Huy Hưng | Backend Engineer & AI Developer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="hero container">
-    <div>
-      <h1>Xin chào, tôi là Frontend Developer</h1>
-      <p>Chuyên xây dựng giao diện web hiện đại, tối ưu trải nghiệm người dùng và hiệu năng.</p>
-      <a href="#projects" class="btn">Xem dự án</a>
-    </div>
-    <div class="avatar" style="background: url('avatar_huyhung.jpg') center/cover;"></div>
-  </div>
-</header>
-
-<section>
-  <div class="container">
-    <h2>Giới thiệu</h2>
-    <p class="about">
-      Tôi là một lập trình viên Frontend với kinh nghiệm làm việc cùng HTML, CSS, JavaScript và các framework hiện đại.
-      Mục tiêu của tôi là tạo ra các sản phẩm có giao diện đẹp, responsive và dễ bảo trì.
-    </p>
-  </div>
-</section>
-
-<section style="background:#f1f5f9">
-  <div class="container">
-    <h2>Kỹ năng</h2>
-    <div class="skills">
-      <div class="skill-card">
-        <h3>HTML5 & CSS3</h3>
-        <p>Semantic HTML, Flexbox, Grid, Responsive Design</p>
-      </div>
-      <div class="skill-card">
-        <h3>JavaScript</h3>
-        <p>ES6+, DOM, Fetch API</p>
-      </div>
-      <div class="skill-card">
-        <h3>React</h3>
-        <p>Hooks, Component-based UI</p>
-      </div>
-      <div class="skill-card">
-        <h3>UI/UX</h3>
-        <p>Thiết kế giao diện thân thiện người dùng</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <h2>Dự án tiêu biểu</h2>
-    <div class="projects">
-      <div class="project-card">
-        <div class="project-thumb"></div>
-        <div class="project-body">
-          <h3>Task Manager App</h3>
-          <p>Ứng dụng quản lý công việc cá nhân với React và LocalStorage.</p>
+    <!-- Navigation -->
+    <nav class="glass">
+        <a href="#" class="logo">Hưng.dev</a>
+        <div class="nav-links">
+            <a href="#about">Giới thiệu</a>
+            <a href="#skills">Kỹ năng</a>
+            <a href="#experience">Kinh nghiệm</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"></div>
-        <div class="project-body">
-          <h3>E-Commerce UI</h3>
-          <p>Giao diện website bán hàng, tối ưu mobile-first.</p>
+        <a href="Cao_Huy_Hung_CV.txt" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Tải CV</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="avatar-container">
+                <img src="image/avatar.jpg" alt="Cao Huy Hưng">
+            </div>
+            <span class="hero-tag">Sẵn sàng cho những thử thách mới</span>
+            <h1>Xin chào, tôi là <br> <span style="color: var(--primary);">Cao Huy Hưng</span></h1>
+            <p>Kỹ sư Backend & AI chuyên xây dựng các hệ thống phân tán hiệu năng cao và tích hợp giải pháp AI thông minh vào thực tế.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">Xem dự án</a>
+                <a href="#contact" class="btn btn-secondary">Liên hệ với tôi</a>
+            </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"></div>
-        <div class="project-body">
-          <h3>Dashboard Analytics</h3>
-          <p>Trang dashboard hiển thị dữ liệu với biểu đồ và layout hiện đại.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="glass-card">
+                <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
+                    <h2>Về bản thân</h2>
+                </div>
+                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 900px;">
+                    Tôi là một Kỹ sư Backend với nền tảng vững chắc về AI, có kinh nghiệm trong việc xây dựng các hệ thống backend quy mô lớn và hiệu năng cao. 
+                    Tôi chuyên phát triển và duy trì hạ tầng phân tán, đồng thời tích hợp các giải pháp AI như Deep Learning (Computer Vision, Generative AI) vào các ứng dụng thực tế. 
+                    Trọng tâm của tôi là tối ưu hóa hiệu suất hệ thống (độ trễ/thông lượng), xử lý dữ liệu quy mô lớn và cung cấp các hệ thống sẵn sàng cho sản xuất được hỗ trợ bởi trí tuệ nhân tạo.
+                </p>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-mint">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kỹ năng chuyên môn</h2>
+                <p>Bộ công nghệ tôi sử dụng để xây dựng các giải pháp đột phá</p>
+            </div>
+            <div class="skills-grid">
+                <div class="glass-card skill-category">
+                    <h3><span class="material-symbols-outlined">code</span> Ngôn ngữ</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">SQL</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3><span class="material-symbols-outlined">terminal</span> Backend</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Django</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">Asyncio</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3><span class="material-symbols-outlined">psychology</span> AI & ML</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Azure OpenAI</span>
+                        <span class="skill-item">YOLO (v8/v11)</span>
+                        <span class="skill-item">RAG Architecture</span>
+                        <span class="skill-item">Text-to-SQL</span>
+                        <span class="skill-item">ONNX Runtime</span>
+                        <span class="skill-item">OpenCV</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3><span class="material-symbols-outlined">database</span> Dữ liệu</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">PostgreSQL (pgvector)</span>
+                        <span class="skill-item">Redis</span>
+                        <span class="skill-item">HNSW Indexing</span>
+                        <span class="skill-item">MySQL</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3><span class="material-symbols-outlined">cloud</span> Hạ tầng</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Azure Service Bus</span>
+                        <span class="skill-item">RabbitMQ</span>
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">CUDA</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3><span class="material-symbols-outlined">build</span> Công cụ AI</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Cursor</span>
+                        <span class="skill-item">Antigravity</span>
+                        <span class="skill-item">Claude Code</span>
+                        <span class="skill-item">Stitch UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kinh nghiệm làm việc</h2>
+                <p>Hành trình phát triển và những đóng góp chuyên môn</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>AI Developer (Trainee - Sublead)</h3>
+                        <div class="timeline-company">Mebisoft</div>
+                        <div class="timeline-date">Tháng 01/2026 - Hiện tại</div>
+                        <div class="timeline-desc">
+                            <p>Kỹ sư AI End-to-end: từ thiết kế hệ thống backend đến triển khai và tối ưu hóa các hệ thống AI thực tế (GenAI & Computer Vision).</p>
+                            <ul>
+                                <li>Thiết kế kiến trúc AI hỗn hợp kết hợp RAG và Text-to-SQL (Vanna.ai).</li>
+                                <li>Xây dựng tìm kiếm vector trên PostgreSQL (pgvector + HNSW) với FastAPI & Redis.</li>
+                                <li>Triển khai YOLO (v8/v11) cho phân đoạn thực thể và đếm đối tượng mật độ cao (~3,000 đối tượng/ảnh).</li>
+                                <li>Tối ưu hóa inference với ONNX Runtime (FP16) trên GPU (CUDA), cải thiện đáng kể thông lượng.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Python Developer - Django</h3>
+                        <div class="timeline-company">Đại học Giao thông Vận tải TP.HCM (UTH)</div>
+                        <div class="timeline-date">Tháng 04/2025 - Tháng 09/2025</div>
+                        <div class="timeline-desc">
+                            <p>Xây dựng và tối ưu hóa API, microservices cho nền tảng quản lý thư viện.</p>
+                            <ul>
+                                <li>Triển khai hệ thống giám sát (trace, log, metrics) sử dụng OpenTelemetry.</li>
+                                <li>Xử lý tác vụ bất đồng bộ với Celery và RabbitMQ để tăng khả năng mở rộng.</li>
+                                <li>Quản lý container hóa ứng dụng để triển khai sản xuất ổn định.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-mint">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dự án tiêu biểu</h2>
+                <p>Những sản phẩm tâm huyết thể hiện năng lực kỹ thuật</p>
+            </div>
+            <div class="project-showcase">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Mebieco AI Chatbot</h3>
+                        <div class="project-tags">
+                            <span>FastAPI</span>
+                            <span>Azure OpenAI</span>
+                            <span>RAG</span>
+                            <span>pgvector</span>
+                        </div>
+                        <p class="project-description">
+                            Hệ thống trợ lý ảo thông minh kết hợp truy xuất kiến thức phi cấu trúc (RAG) và truy vấn cơ sở dữ liệu có cấu trúc (Text-to-SQL) qua ngôn ngữ tự nhiên. Giao diện trực quan và phản hồi theo thời gian thực.
+                        </p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem chi tiết</a>
+                            <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Mã nguồn</a>
+                        </div>
+                    </div>
+                    <div class="project-gallery grid-2">
+                        <div class="gallery-item">
+                            <img src="image/project-chatbot/system-design.jpg" alt="Mebieco AI System Design">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/project-chatbot/3d-flow.png" alt="Mebieco AI 3D Flow">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Mebieco-AI CV -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Mebieco-AI Computer Vision</h3>
+                        <div class="project-tags">
+                            <span>YOLO v8/v11</span>
+                            <span>ONNX Runtime</span>
+                            <span>CUDA</span>
+                            <span>Azure Service Bus</span>
+                        </div>
+                        <p class="project-description">
+                            Hệ thống Computer Vision phân tán với kiến trúc hướng sự kiện. Tích hợp YOLO cho phân đoạn thực thể và đếm đối tượng mật độ cao, tối ưu hóa suy luận (inference) bằng ONNX và CUDA.
+                        </p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem chi tiết</a>
+                            <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Mã nguồn</a>
+                        </div>
+                    </div>
+                    <div class="project-gallery grid-3">
+                        <div class="gallery-item">
+                            <img src="stitch_glassmorphism_app_showcase/stitch_glassmorphism_app_showcase/z7820224838036_e94df9e1d8e2a04bf4dc41331fff9e10.jpg/screen.png" alt="Mebieco AI CV Dashboard">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="stitch_glassmorphism_app_showcase/stitch_glassmorphism_app_showcase/z7820224843058_c248cca77402d60f185c03ff0b82ff11.jpg/screen.png" alt="Mebieco AI CV Detail 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="stitch_glassmorphism_app_showcase/stitch_glassmorphism_app_showcase/z7820224853832_bf4619dd74aa38014b946f41bce20c90.jpg/screen.png" alt="Mebieco AI CV Detail 2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: TranSportCOM -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">TranSportCOM</h3>
+                        <div class="project-tags">
+                            <span>Django</span>
+                            <span>Vue.js</span>
+                            <span>Docker</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <p class="project-description">
+                            Hệ thống đặt vé xe bus trực tuyến toàn diện được thiết kế với giao diện Glassmorphism hiện đại, cho phép người dùng tìm kiếm chuyến, chọn ghế ngồi trực quan và thanh toán an toàn nhanh chóng.
+                        </p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem chi tiết</a>
+                            <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Mã nguồn</a>
+                        </div>
+                    </div>
+                    <!-- No gallery for TranSportCOM as image was incorrect -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="glass-card">
+                <div class="section-title">
+                    <h2>Liên hệ</h2>
+                    <p>Hãy cùng thảo luận về những dự án và cơ hội hợp tác mới</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: var(--text-muted);">Email</h4>
+                                <p style="font-weight: 600;">huyhungdp@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: var(--text-muted);">Điện thoại</h4>
+                                <p style="font-weight: 600;">033 969 1906</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 style="font-size: 0.9rem; color: var(--text-muted);">Địa điểm</h4>
+                                <p style="font-weight: 600;">TP. Hồ Chí Minh, Việt Nam</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label>Họ và tên</label>
+                            <input type="text" placeholder="Nhập tên của bạn...">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Nhập email của bạn...">
+                        </div>
+                        <div class="form-group">
+                            <label>Tin nhắn</label>
+                            <textarea rows="4" placeholder="Bạn muốn nói gì với tôi?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi tin nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="https://github.com/hung.1906"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/hunghuycao"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Cao Huy Hưng. Được xây dựng với sự tỉ mỉ.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
     </div>
-  </div>
-</section>
 
-<section style="background:#f1f5f9">
-  <div class="container contact">
-    <h2>Liên hệ</h2>
-    <p>Email: example@email.com</p>
-    <p>GitHub: github.com/username</p>
-    <p>LinkedIn: linkedin.com/in/username</p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Frontend Developer Portfolio. All rights reserved.</p>
-</footer>
-
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
 </html>
