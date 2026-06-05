@@ -37,8 +37,8 @@ Trang web Portfolio cá nhân chuyên nghiệp, hiện đại được thiết k
    - Truy cập đường dẫn đó để xem trang web của bạn đã online!
 
 ## Lưu ý
-- Đảm bảo tệp `image/avatar.jpg` đã tồn tại để hiển thị ảnh đại diện.
-- Các tệp ảnh dự án đang được tham chiếu đến các thư mục `stitch_*` có sẵn trong thư mục này.
+- Các tài nguyên tĩnh như CSS, JS, ảnh đại diện, ảnh dự án, video demo và CV được tổ chức ngăn nắp và khoa học trong thư mục [assets](file:///c:/xampp/htdocs/porfolio_demo/assets).
+- Các thư mục thiết kế gốc từ Stitch được lưu giữ gọn gàng trong thư mục [designs](file:///c:/xampp/htdocs/porfolio_demo/designs) để dễ dàng tham khảo.
 
 ---
 © 2026 Cao Huy Hưng. Được hỗ trợ bởi Antigravity.
