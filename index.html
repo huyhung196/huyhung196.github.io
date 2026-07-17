@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cao Huy Hưng | Backend Engineer & AI Developer</title>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +47,10 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">Hưng.dev</a>
+        <a href="#" class="logo">Hưng Huy Cao</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="nav-links">
             <a href="#about">Giới thiệu</a>
             <a href="#skills">Kỹ năng</a>
@@ -56,10 +58,7 @@
             <a href="#projects">Dự án</a>
             <a href="#contact">Liên hệ</a>
         </div>
-        <a href="assets/cv/caohuyhung_ai.pdf" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;"
-            download>Tải CV</a>
     </nav>
-
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
@@ -67,7 +66,12 @@
                 <img src="assets/images/avatar.jpg" alt="Cao Huy Hưng">
             </div>
             <span class="hero-tag">Sẵn sàng cho những thử thách mới</span>
-            <h1>Xin chào, tôi là <br> <span style="color: var(--primary);">Cao Huy Hưng</span></h1>
+            <div class="hero-title-wrapper">
+                <div id="robot-animation"
+                    style="position: absolute; right: 100%; top: 0; margin-right: -10px; width: 140px; height: 140px; transform: scale(1.6) translateY(-20px); pointer-events: none; z-index: 10;">
+                </div>
+                <h1>Xin chào, tôi là <br> <span style="color: var(--primary);">Cao Huy Hưng</span></h1>
+            </div>
             <p>Kỹ sư Backend & AI chuyên xây dựng các hệ thống phân tán hiệu năng cao và tích hợp giải pháp AI thông
                 minh vào thực tế.</p>
             <div class="hero-btns">
@@ -81,17 +85,34 @@
     <section id="about">
         <div class="container">
             <div class="glass-card">
-                <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
-                    <h2>Về bản thân</h2>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                            <h2>Về bản thân</h2>
+                        </div>
+                        <p class="about-text">
+                            Kỹ sư Backend với nền tảng vững chắc về Trí tuệ nhân tạo (AI), tập trung phát triển các hệ thống backend hiệu năng cao, có khả năng mở rộng và đáp ứng yêu cầu của môi trường production.
+                        </p>
+                        <p class="about-text">
+                            Có kinh nghiệm xây dựng API, tối ưu hiệu suất hệ thống và tích hợp các mô hình AI như Computer Vision và Generative AI vào ứng dụng thực tế. Quan tâm đến thiết kế kiến trúc backend, xử lý dữ liệu và triển khai các giải pháp AI nhằm tạo ra những sản phẩm ổn định, hiệu quả và có giá trị ứng dụng.
+                        </p>
+                        
+                        <div class="about-highlights">
+                            <span class="highlight-badge"><i class="fa-solid fa-server"></i> Kiến trúc hệ thống</span>
+                            <span class="highlight-badge"><i class="fa-solid fa-robot"></i> Tích hợp AI</span>
+                            <span class="highlight-badge"><i class="fa-solid fa-bolt"></i> Hiệu năng cao</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image-wrapper">
+                        <div class="about-image-frame">
+                            <img src="assets/images/avatar_huyhung.jpg" alt="Cao Huy Hưng">
+                            <div class="memphis-decor memphis-decor-1"></div>
+                            <div class="memphis-decor memphis-decor-2"></div>
+                            <div class="memphis-decor memphis-decor-3"></div>
+                        </div>
+                    </div>
                 </div>
-                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 900px;">
-                    Tôi là một Kỹ sư Backend với nền tảng vững chắc về AI, có kinh nghiệm trong việc xây dựng các hệ
-                    thống backend quy mô lớn và hiệu năng cao.
-                    Tôi chuyên phát triển và duy trì hạ tầng phân tán, đồng thời tích hợp các giải pháp AI như Deep
-                    Learning (Computer Vision, Generative AI) vào các ứng dụng thực tế.
-                    Trọng tâm của tôi là tối ưu hóa hiệu suất hệ thống (độ trễ/thông lượng), xử lý dữ liệu quy mô lớn và
-                    cung cấp các hệ thống sẵn sàng cho sản xuất được hỗ trợ bởi trí tuệ nhân tạo.
-                </p>
             </div>
         </div>
     </section>
@@ -100,7 +121,12 @@
     <section id="skills" class="bg-mint">
         <div class="container">
             <div class="section-title">
-                <h2>Kỹ năng chuyên môn</h2>
+                <h2>
+                    Kỹ năng chuyên môn
+                    <div id="cat-animation"
+                        style="position: absolute; top: -50px; right: -100px; width: 120px; height: 120px; z-index: 10; pointer-events: none;">
+                    </div>
+                </h2>
                 <p>Bộ công nghệ tôi sử dụng để xây dựng các giải pháp đột phá</p>
             </div>
             <div class="skills-grid">
@@ -177,8 +203,8 @@
                     </div>
                 </div>
 
-                <!-- Row 3, Column 1-2: Công cụ AI -->
-                <div class="glass-card skill-category span-2">
+                <!-- Row 2, Column 3: Công cụ AI -->
+                <div class="glass-card skill-category">
                     <h3><i class="fa-solid fa-robot" style="color: var(--memphis-yellow);"></i> Công cụ AI</h3>
                     <div class="skill-list">
                         <span class="skill-item"><i class="fa-solid fa-wand-magic-sparkles" style="color: #7B68EE;"></i>
@@ -215,7 +241,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>AI Developer (Trainee - Sublead)</h3>
+                        <h3>AI Developer (Fresher)</h3>
                         <div class="timeline-company">Mebisoft</div>
                         <div class="timeline-date">Tháng 01/2026 - Hiện tại</div>
                         <div class="timeline-desc">
@@ -269,25 +295,30 @@
                             <span>Azure OpenAI</span>
                             <span>RAG</span>
                             <span>pgvector</span>
+                            <span>Realtime Voice</span>
                         </div>
                         <p class="project-description">
-                            Hệ thống trợ lý ảo thông minh kết hợp truy xuất kiến thức phi cấu trúc (RAG) và truy vấn cơ
-                            sở dữ liệu có cấu trúc (Text-to-SQL) qua ngôn ngữ tự nhiên. Giao diện trực quan và phản hồi
-                            theo thời gian thực.
+                            Hệ thống trợ lý ảo thông minh kết hợp truy xuất kiến thức phi cấu trúc (RAG), truy vấn cơ sở dữ liệu có cấu trúc (Text-to-SQL) qua ngôn ngữ tự nhiên và đặc biệt tích hợp khả năng giao tiếp bằng <strong>giọng nói theo thời gian thực (Realtime Voice AI)</strong>. Giao diện trực quan và phản hồi tức thì.
                         </p>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem
+                            <a href="projects/chatbot.html" class="btn btn-primary"
+                                style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem
                                 chi tiết</a>
                             <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Mã
                                 nguồn</a>
                         </div>
                     </div>
-                    <div class="project-gallery grid-2">
+                    <div class="chatbot-stack">
                         <div class="gallery-item">
-                            <img src="assets/images/projects/chatbot/system-design.jpg" alt="Mebieco AI System Design">
+                            <img src="assets/images/projects/chatbot/chatbot_ai.png" alt="Mebieco AI Chatbot">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/projects/chatbot/3d-flow.png" alt="Mebieco AI 3D Flow">
+                            <img src="assets/images/projects/chatbot/dashboard_chatbot_ai.png"
+                                alt="Mebieco AI Dashboard">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/projects/chatbot/grapha_node_chatbot_ai.png"
+                                alt="Mebieco AI Graph Node">
                         </div>
                     </div>
                 </div>
@@ -307,24 +338,22 @@
                             thực thể và đếm đối tượng mật độ cao, tối ưu hóa suy luận (inference) bằng ONNX và CUDA.
                         </p>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem
+                            <a href="projects/cv.html" class="btn btn-primary"
+                                style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem
                                 chi tiết</a>
                             <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Mã
                                 nguồn</a>
                         </div>
                     </div>
-                    <div class="project-gallery grid-3">
+                    <div class="cv-collage">
                         <div class="gallery-item">
-                            <img src="assets/images/projects/cv/cv-1.png"
-                                alt="Mebieco AI CV Dashboard">
+                            <img src="assets/images/projects/cv/cv-1.png" alt="Mebieco AI CV Dashboard">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/projects/cv/cv-2.png"
-                                alt="Mebieco AI CV Detail 1">
+                            <img src="assets/images/projects/cv/cv-2.png" alt="Mebieco AI CV Detail 1">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/projects/cv/cv-3.png"
-                                alt="Mebieco AI CV Detail 2">
+                            <img src="assets/images/projects/cv/cv-3.png" alt="Mebieco AI CV Detail 2">
                         </div>
                     </div>
                 </div>
@@ -348,9 +377,12 @@
                             luồng xử lý song song đa luồng và hiển thị giao diện Dashboard Memphis UI trực quan trực
                             tiếp trên luồng video đầu ra.
                         </p>
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
-                            <a href="assets/videos/camera_ai.mp4" class="btn btn-primary"
-                                style="padding: 0.6rem 1.5rem; font-size: 0.95rem; text-transform: none;"
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="projects/camera-ai.html" class="btn btn-primary"
+                                style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem
+                                chi tiết</a>
+                            <a href="assets/videos/camera_ai.mp4" class="btn btn-secondary"
+                                style="padding: 0.6rem 1.5rem; font-size: 0.9rem; text-transform: none;"
                                 target="_blank">
                                 <i class="fa-solid fa-circle-play"
                                     style="margin-right: 0.5rem; font-size: 1.1rem; vertical-align: middle;"></i> Xem
@@ -358,42 +390,14 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="project-media-container"
-                        style="grid-template-columns: 1fr; max-width: 800px; margin: 2rem auto 0;">
-                        <!-- Centered Inline Video Player -->
-                        <div class="video-wrapper">
-                            <video controls>
-                                <source src="assets/videos/camera_ai.mp4" type="video/mp4">
-                                Trình duyệt của bạn không hỗ trợ phát video.
-                            </video>
+                    <div class="camera-collage">
+                        <div class="gallery-item">
+                            <img src="assets/images/projects/camera/dashboard_camera_ai.png" alt="Mebieco Camera AI Dashboard">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/projects/camera/warning_camera_ai.png" alt="Mebieco Camera AI Warning System">
                         </div>
                     </div>
-                </div>
-
-                <!-- Project 4: TranSportCOM -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">TranSportCOM</h3>
-                        <div class="project-tags">
-                            <span>Django</span>
-                            <span>Vue.js</span>
-                            <span>Docker</span>
-                            <span>PostgreSQL</span>
-                        </div>
-                        <p class="project-description">
-                            Hệ thống đặt vé xe bus trực tuyến toàn diện được thiết kế với giao diện Glassmorphism hiện
-                            đại, cho phép người dùng tìm kiếm chuyến, chọn ghế ngồi trực quan và thanh toán an toàn
-                            nhanh chóng.
-                        </p>
-                        <div style="display: flex; gap: 1rem;">
-                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Xem
-                                chi tiết</a>
-                            <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Mã
-                                nguồn</a>
-                        </div>
-                    </div>
-                    <!-- No gallery for TranSportCOM as image was incorrect -->
                 </div>
             </div>
         </div>
@@ -406,6 +410,9 @@
                 <div class="section-title">
                     <h2>Liên hệ</h2>
                     <p>Hãy cùng thảo luận về những dự án và cơ hội hợp tác mới</p>
+                </div>
+                <div id="dog-animation"
+                    style="position: absolute; top: 10px; right: 0; width: 130px; height: 130px; z-index: 10; pointer-events: none;">
                 </div>
                 <div class="contact-container">
                     <div class="contact-info">
@@ -476,6 +483,58 @@
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img">
     </div>
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <!-- Lottie Web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <script src="animation/robot_data.js"></script>
+    <script src="animation/cat_data.js"></script>
+    <script src="animation/dog_data.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Robot
+            var animContainer = document.getElementById('robot-animation');
+            if (animContainer && typeof robotData !== 'undefined') {
+                lottie.loadAnimation({
+                    container: animContainer,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    animationData: robotData
+                });
+            } else if (animContainer) {
+                animContainer.innerHTML = '<div style="color: #FF3366; text-align: center; padding: 20px; border: 2px dashed #FF3366; border-radius: 10px; background: rgba(255,51,102,0.1);"><strong>Lỗi tải Animation!</strong><br>Không tìm thấy biến dữ liệu robotData.</div>';
+            }
+
+            // Cat
+            var catContainer = document.getElementById('cat-animation');
+            if (catContainer && typeof catData !== 'undefined') {
+                lottie.loadAnimation({
+                    container: catContainer,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    animationData: catData
+                });
+            }
+
+            // Dog
+            var dogContainer = document.getElementById('dog-animation');
+            if (dogContainer && typeof dogData !== 'undefined') {
+                lottie.loadAnimation({
+                    container: dogContainer,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    animationData: dogData
+                });
+            }
+        });
+    </script>
 
     <!-- JS -->
     <script src="assets/js/script.js"></script>

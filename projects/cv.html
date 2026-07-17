@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mebieco-AI Computer Vision | Cao Huy Hưng Portfolio</title>
+    <meta name="description" content="Hệ thống Computer Vision phân tán hiệu năng cao. Thiết kế và phát triển bởi Cao Huy Hưng.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/cv.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Main Header -->
+        <header>
+            <a href="../index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> BACK_TO_HOME
+            </a>
+            <div class="header-logo">SYSTEM.MAIN_FRAME</div>
+        </header>
+
+        <!-- Page Title -->
+        <section class="page-intro">
+            <h1 class="page-title">MEBIECO-AI COMPUTER VISION</h1>
+            <p class="page-subtitle">Hệ thống phân tích hình ảnh và phân đoạn đối tượng mật độ cao phân tán</p>
+        </section>
+
+        <!-- System HUD Status Bar -->
+        <section class="hud-status-bar">
+            <!-- Metric 1: CUDA load -->
+            <div class="hud-metric-card">
+                <span class="metric-label">CUDA Core Load</span>
+                <div class="metric-value">
+                    <span id="metric-cuda">78</span><span class="metric-unit">%</span>
+                </div>
+                <div class="metric-progress">
+                    <div class="metric-progress-bar" id="bar-cuda" style="width: 78%;"></div>
+                </div>
+            </div>
+
+            <!-- Metric 2: FPS -->
+            <div class="hud-metric-card">
+                <span class="metric-label">Real-time Latency</span>
+                <div class="metric-value">
+                    <span id="metric-fps">85</span><span class="metric-unit">FPS</span>
+                </div>
+                <div class="metric-progress">
+                    <div class="metric-progress-bar" id="bar-fps" style="width: 70%;"></div>
+                </div>
+            </div>
+
+            <!-- Metric 3: Temp -->
+            <div class="hud-metric-card alert-metric">
+                <span class="metric-label">GPU Temperature</span>
+                <div class="metric-value">
+                    <span id="metric-temp">64</span><span class="metric-unit">°C</span>
+                </div>
+                <div class="metric-progress">
+                    <div class="metric-progress-bar" id="bar-temp" style="width: 64%;"></div>
+                </div>
+            </div>
+
+            <!-- Metric 4: Total Detections -->
+            <div class="hud-metric-card">
+                <span class="metric-label">Accumulated Detections</span>
+                <div class="metric-value" style="font-size: 1.4rem; padding-top: 0.3rem;" id="metric-count">
+                    3,428,290
+                </div>
+                <div class="metric-progress">
+                    <div class="metric-progress-bar" style="width: 100%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main HUD Grid Layout -->
+        <div class="hud-grid">
+            
+            <!-- Left Column: Details -->
+            <main class="hud-doc-panels">
+                
+                <!-- Panel 1: Project Overview -->
+                <article class="hud-panel" id="panel-overview">
+                    <h2><i class="fa-solid fa-microchip"></i> Tổng quan hệ thống</h2>
+                    <p>
+                        Dự án <strong>Mebieco-AI Computer Vision</strong> tập trung giải quyết bài toán phát hiện đối tượng và phân đoạn thực thể (Instance Segmentation) tự động trong môi trường công nghiệp mật độ cao.
+                    </p>
+                    <p>
+                        Hệ thống có khả năng xử lý đồng thời nhiều luồng RTSP camera, đếm và phân loại các đối tượng di chuyển với mật độ lên tới 3,000 thực thể trên mỗi khung hình với sai số cực nhỏ (&lt;1.5%).
+                    </p>
+                </article>
+
+                <!-- Panel 2: Deep Learning & Optimizations -->
+                <article class="hud-panel" id="panel-optimizations" style="border-color: rgba(255, 107, 53, 0.2);">
+                    <h2 style="border-bottom-color: rgba(255, 107, 53, 0.1);"><i class="fa-solid fa-bolt" style="color: var(--hud-secondary);"></i> Tối ưu hóa Inference & Hạ tầng</h2>
+                    <p>
+                        Để phục vụ nhu cầu xử lý thời gian thực với lượng dữ liệu camera khổng lồ, tôi đã thiết kế và triển khai kiến trúc tối ưu hóa toàn diện:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>YOLO v8 / v11 Core:</strong> Áp dụng các mô hình pre-trained và fine-tune trên tập dữ liệu tùy chỉnh của Mebieco cho bài toán phân đoạn (segmentation) và đếm đối tượng tốc độ cao.
+                        </li>
+                        <li>
+                            <strong>ONNX Runtime & TensorRT:</strong> Chuyển đổi mô hình PyTorch sang định dạng ONNX, áp dụng lượng tử hóa FP16 để tối ưu hóa suy luận trực tiếp trên GPU CUDA, cải thiện thông lượng lên gấp 2.8 lần.
+                        </li>
+                        <li>
+                            <strong>Event-driven Architecture:</strong> Tích hợp <code>Azure Service Bus</code> để gửi nhận kết quả phân tích bất đồng bộ, giúp tách rời (decouple) luồng AI xử lý ảnh nặng nề khỏi hệ thống lưu trữ database.
+                        </li>
+                        <li>
+                            <strong>Multithreading Frame Grabber:</strong> Xây dựng luồng đọc frame camera độc lập bằng Python Multithreading giúp tránh hiện tượng trễ hình (frame lag) do suy luận AI không đồng bộ.
+                        </li>
+                    </ul>
+                </article>
+
+            </main>
+
+            <!-- Right Column: Interactive BBox Inspector -->
+            <aside class="hud-inspector-panel">
+                <!-- Tabs navigation -->
+                <div class="inspector-tabs">
+                    <button class="inspector-tab active" data-tab="dashboard">BOARD_FEED_1</button>
+                    <button class="inspector-tab" data-tab="detail-1">DETAIL_VIEW_2</button>
+                    <button class="inspector-tab" data-tab="detail-2">DETAIL_VIEW_3</button>
+                </div>
+
+                <!-- Inspector Viewport -->
+                <div class="inspector-viewport" id="inspector-viewport">
+                    <!-- Crosshair layer -->
+                    <div class="viewport-crosshair" id="viewport-crosshair"></div>
+                    
+                    <!-- Bounding Boxes Container -->
+                    <div id="bbox-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 5;">
+                        <!-- Overlay elements will inject here -->
+                    </div>
+
+                    <!-- Underlay project image -->
+                    <img id="viewport-img" src="../assets/images/projects/cv/cv-1.png" alt="Mebieco AI CV Viewport">
+                </div>
+
+                <!-- Inspector Metadata HUD stats -->
+                <div class="inspector-stats-card">
+                    <h3><i class="fa-solid fa-radar"></i> DETECTED_OBJECT_METADATA</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Class Label</span>
+                            <span class="stat-value" id="stat-class">Package Count</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Confidence Score</span>
+                            <span class="stat-value" id="stat-conf">98.7%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">BBox Coordinates</span>
+                            <span class="stat-value" id="stat-bbox">[230, 110, 80, 70]</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Inference Time</span>
+                            <span class="stat-value" id="stat-time">8.2ms</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../assets/js/cv.js"></script>
+</body>
+
+</html>

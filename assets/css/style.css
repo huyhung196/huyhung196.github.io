@@ -41,6 +41,18 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-padding-top: 80px;
+}
+
+section {
+    scroll-margin-top: 0;
+}
+
+.project-card {
+    scroll-margin-top: 2rem;
+}
+
 /* ===== BODY & MEMPHIS BACKGROUND ===== */
 body {
     font-family: var(--font-main);
@@ -261,7 +273,7 @@ section {
     border-radius: 4px;
     padding: 2.5rem;
     box-shadow: var(--shadow-memphis);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
@@ -301,6 +313,15 @@ nav {
 .nav-links {
     display: flex;
     gap: 2rem;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
 }
 
 .nav-links a {
@@ -407,6 +428,11 @@ nav {
     filter: none;
 }
 
+.hero-title-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .hero-tag {
     color: var(--primary);
     text-transform: uppercase;
@@ -452,7 +478,7 @@ nav {
     border-radius: 4px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -501,7 +527,7 @@ nav {
 
 .section-title {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 }
 
 .section-title h2 {
@@ -531,15 +557,134 @@ nav {
     font-size: 1.05rem;
 }
 
+/* ===== ABOUT SECTION ===== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+}
+
+.about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.highlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 3px solid var(--memphis-border);
+    background: #fff;
+    box-shadow: 4px 4px 0 var(--memphis-border);
+    transition: all 0.3s ease;
+    color: var(--text-main);
+}
+
+.highlight-badge:nth-child(1) { box-shadow: 4px 4px 0 var(--memphis-yellow); }
+.highlight-badge:nth-child(2) { box-shadow: 4px 4px 0 var(--memphis-blue); }
+.highlight-badge:nth-child(3) { box-shadow: 4px 4px 0 var(--memphis-pink); }
+
+.highlight-badge:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 var(--primary);
+}
+
+.about-image-wrapper {
+    position: relative;
+    padding: 1rem;
+}
+
+.about-image-frame {
+    position: relative;
+    z-index: 2;
+    border: 4px solid var(--memphis-border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    padding: 15px;
+    box-shadow: 12px 12px 0 var(--memphis-purple);
+    transform: rotate(2deg);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.about-image-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 8px 8px 0 var(--memphis-orange);
+}
+
+.about-image-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 2px solid var(--memphis-border);
+    display: block;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.memphis-decor {
+    position: absolute;
+    z-index: -1;
+}
+
+.memphis-decor-1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--memphis-yellow);
+    top: -20px;
+    left: -20px;
+    border: 3px solid var(--memphis-border);
+}
+
+.memphis-decor-2 {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 52px solid var(--memphis-pink);
+    bottom: -15px;
+    right: -25px;
+    transform: rotate(15deg);
+}
+
+.memphis-decor-3 {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--memphis-blue);
+    background: transparent;
+    top: 50%;
+    right: -30px;
+    transform: rotate(45deg);
+}
+
 /* ===== SKILLS BENTO GRID ===== */
+#skills {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
 }
 
 .skill-category {
-    padding: 2.2rem;
+    padding: 1.5rem;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -617,9 +762,9 @@ nav {
 
 .skill-category h3 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -633,15 +778,15 @@ nav {
 .skill-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .skill-item {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     border: 2px solid var(--memphis-border);
     box-shadow: 3px 3px 0 var(--memphis-border);
@@ -745,7 +890,7 @@ nav {
     border-radius: 4px;
     padding: 2rem;
     box-shadow: var(--shadow-memphis);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .timeline-content:hover {
@@ -809,7 +954,7 @@ nav {
     padding: 3rem;
     box-shadow: var(--shadow-memphis-lg);
     margin-bottom: 3rem;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -841,6 +986,23 @@ nav {
 .project-card:hover {
     box-shadow: 12px 12px 0 var(--memphis-border);
     transform: translate(-3px, -3px);
+}
+
+@media (min-width: 992px) {
+    .project-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+    
+    .project-card > *:only-child {
+        grid-column: 1 / -1;
+    }
+    
+    .project-header {
+        margin-bottom: 0 !important;
+    }
 }
 
 .project-header {
@@ -936,6 +1098,165 @@ nav {
 
 .gallery-item:hover img {
     transform: scale(1.03);
+}
+
+/* Unique Memphis Collage for CV Project (Full images, no cropping) */
+.cv-collage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.cv-collage .gallery-item {
+    width: 35%;
+    border: 4px solid var(--text-dark);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    cursor: pointer;
+    margin: 0 -4%;
+    background: #fff;
+}
+
+.cv-collage .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cv-collage .gallery-item:nth-child(1) {
+    transform: rotate(-4deg) translateY(15px);
+    box-shadow: 8px 8px 0 var(--memphis-blue);
+    z-index: 2;
+}
+
+.cv-collage .gallery-item:nth-child(2) {
+    transform: rotate(2deg) translateY(-15px);
+    box-shadow: 8px 8px 0 var(--memphis-pink);
+    z-index: 3;
+}
+
+.cv-collage .gallery-item:nth-child(3) {
+    transform: rotate(-3deg) translateY(5px);
+    box-shadow: 8px 8px 0 var(--memphis-yellow);
+    z-index: 1;
+}
+
+.cv-collage .gallery-item:hover {
+    transform: scale(1.15) rotate(0deg) translateY(-20px);
+    z-index: 10 !important;
+    box-shadow: 12px 12px 0 var(--primary);
+}
+
+/* Unique Memphis Zig-Zag Stack for Chatbot Project (Full images, no cropping) */
+.chatbot-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0 2rem;
+}
+
+.chatbot-stack .gallery-item {
+    width: 85%;
+    border: 4px solid var(--text-dark);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background: #fff;
+    position: relative;
+}
+
+.chatbot-stack .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.chatbot-stack .gallery-item:nth-child(1) {
+    transform: rotate(-2deg);
+    box-shadow: 8px 8px 0 var(--memphis-yellow);
+    z-index: 1;
+}
+
+.chatbot-stack .gallery-item:nth-child(2) {
+    transform: rotate(3deg);
+    box-shadow: -8px 8px 0 var(--memphis-pink);
+    margin-top: -15%;
+    z-index: 2;
+}
+
+.chatbot-stack .gallery-item:nth-child(3) {
+    transform: rotate(-1deg);
+    box-shadow: 8px 8px 0 var(--memphis-blue);
+    margin-top: -15%;
+    z-index: 3;
+}
+
+.chatbot-stack .gallery-item:hover {
+    transform: scale(1.1) rotate(0deg) translateY(-10px);
+    z-index: 10 !important;
+    box-shadow: 12px 12px 0 var(--primary) !important;
+}
+
+/* Unique Memphis Collage for Camera AI Project (2 images) */
+.camera-collage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.camera-collage .gallery-item {
+    width: 48%;
+    border: 4px solid var(--memphis-border);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    cursor: pointer;
+    background: #fff;
+    margin: 0 -3%;
+}
+
+.camera-collage .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.camera-collage .gallery-item:nth-child(1) {
+    transform: rotate(-3deg) translateY(10px);
+    box-shadow: 8px 8px 0 var(--memphis-orange);
+    z-index: 2;
+}
+
+.camera-collage .gallery-item:nth-child(2) {
+    transform: rotate(4deg) translateY(-10px);
+    box-shadow: 8px 8px 0 var(--memphis-green);
+    z-index: 1;
+}
+
+.camera-collage .gallery-item:hover {
+    transform: scale(1.1) rotate(0deg) translateY(-15px);
+    z-index: 10 !important;
+    box-shadow: 12px 12px 0 var(--primary);
+}
+
+@media (min-width: 992px) {
+    .camera-collage {
+        flex-direction: column;
+    }
+    
+    .camera-collage .gallery-item {
+        width: 85%;
+        margin: 0;
+    }
+    
+    .camera-collage .gallery-item:nth-child(1) {
+        transform: rotate(-2deg);
+    }
+    
+    .camera-collage .gallery-item:nth-child(2) {
+        transform: rotate(3deg);
+        margin-top: -15%;
+    }
 }
 
 /* Memphis project media container (side-by-side video and images) */
@@ -1323,17 +1644,186 @@ footer::before {
         font-size: 2.5rem;
     }
 
+    .avatar-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    #about .glass-card {
+        padding: 1.25rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .about-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-highlights {
+        margin-top: 1rem;
+        gap: 0.5rem;
+    }
+
+    .highlight-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .about-image-frame {
+        max-width: 160px;
+        margin: 0 auto;
+        padding: 8px;
+    }
+    
+    .about-image-frame .memphis-decor-1 {
+        width: 30px;
+        height: 30px;
+        top: -10px;
+        left: -10px;
+    }
+
+    .about-image-frame .memphis-decor-2 {
+        border-left-width: 15px;
+        border-right-width: 15px;
+        border-bottom-width: 25px;
+        bottom: -5px;
+        right: -10px;
+    }
+
+    .about-image-frame .memphis-decor-3 {
+        width: 20px;
+        height: 20px;
+        right: -15px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        border: 3px solid var(--memphis-border);
+        box-shadow: var(--shadow-memphis);
+        border-radius: 4px;
+        gap: 1.5rem;
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+
+    #robot-animation {
+        right: auto !important;
+        left: 0 !important;
+        top: -45px !important;
+        width: 65px !important;
+        height: 65px !important;
+        transform: translateX(-30%) rotate(-10deg) !important;
+        margin: 0 !important;
+    }
+
+    #cat-animation {
+        top: -55px !important;
+        right: 0 !important;
+        left: 0 !important;
+        margin: 0 auto !important;
+        width: 65px !important;
+        height: 65px !important;
+    }
+
+    #dog-animation {
+        top: 10px !important;
+        bottom: auto !important;
+        right: 0 !important;
+        width: 75px !important;
+        height: 75px !important;
+    }
+
+    #contact {
+        padding: 40px 0 30px;
+    }
+    #contact .section-title {
+        margin-bottom: 1.5rem;
+    }
+    #contact .glass-card {
+        padding: 1rem;
     }
 
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info {
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .contact-method {
+        gap: 0.8rem;
+    }
+
+    .contact-method h4 {
+        font-size: 0.8rem !important;
+    }
+
+    .contact-method p {
+        font-size: 0.9rem !important;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .form-group textarea {
+        height: 80px;
+    }
+
+    .contact-form .btn-primary {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 
     .hero-btns {
         flex-direction: column;
         align-items: center;
+        width: 100%;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
     }
 
     .project-card {
@@ -1388,4 +1878,61 @@ footer::before {
     .project-gallery.grid-3 {
         grid-template-columns: 1fr;
     }
+    
+    .timeline-item {
+        padding-left: 2rem;
+    }
+    
+    .project-card {
+        padding: 1.25rem;
+    }
+    
+    .project-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .glass-card {
+        padding: 1.25rem;
+    }
+}
+
+/* ===== SPOTLIGHT HOVER EFFECTS ===== */
+.glass-card, .project-card, .timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+        rgba(255, 51, 102, 0.12) 0%,
+        rgba(0, 201, 167, 0.08) 55%,
+        transparent 100%
+    );
+}
+
+.glass-card:hover .card-spotlight,
+.project-card:hover .card-spotlight,
+.timeline-content:hover .card-spotlight {
+    opacity: 1;
+}
+
+/* Ensure content is positioned relative and has higher z-index to stay above spotlight */
+.glass-card > *:not(.card-spotlight), .project-card > *:not(.card-spotlight), .timeline-content > *:not(.card-spotlight) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make sure project background pseudo elements are behind the spotlight */
+.project-card::before {
+    z-index: 1; /* Keep corners on top if desired, or set lower if needed. Corner is decorative, keeping it at 1 or 2 is fine. */
 }

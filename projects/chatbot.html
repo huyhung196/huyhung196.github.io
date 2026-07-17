@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mebieco AI Chatbot | Cao Huy Hưng Portfolio</title>
+    <meta name="description" content="Trợ lý ảo thông minh kết hợp RAG & Text-to-SQL. Thiết kế và phát triển bởi Cao Huy Hưng.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/chatbot.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Navigation Header -->
+        <header>
+            <a href="../index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Quay lại
+            </a>
+            <div class="header-logo">Hưng.dev</div>
+        </header>
+
+        <!-- Project Hero Banner -->
+        <section class="project-banner">
+            <h1 class="project-title" id="chatbot-project-title">Mebieco AI Chatbot</h1>
+            <div class="project-meta-tags">
+                <span class="meta-tag">FastAPI</span>
+                <span class="meta-tag">Azure OpenAI</span>
+                <span class="meta-tag">RAG Architecture</span>
+                <span class="meta-tag">pgvector & HNSW</span>
+                <span class="meta-tag">Vanna.ai</span>
+                <span class="meta-tag">Redis Cache</span>
+            </div>
+        </section>
+
+        <!-- Main Project Grid -->
+        <div class="project-grid">
+            
+            <!-- Left Column: Project Details -->
+            <main class="project-content">
+                
+                <!-- Section 1: Overview -->
+                <article class="content-section" id="section-overview">
+                    <h2><i class="fa-solid fa-circle-info"></i> Tổng quan dự án</h2>
+                    <p>
+                        <strong>Mebieco AI Chatbot</strong> là một hệ thống trợ lý ảo thông minh cấp doanh nghiệp, được thiết kế để giải quyết bài toán truy xuất thông tin tự động từ cả hai nguồn dữ liệu: 
+                        <strong>dữ liệu phi cấu trúc</strong> (chính sách, tài liệu hướng dẫn) và 
+                        <strong>dữ liệu có cấu trúc</strong> (cơ sở dữ liệu giao dịch, doanh số).
+                    </p>
+                    <p>
+                        Hệ thống hoạt động như một cầu nối ngôn ngữ tự nhiên (Natural Language Interface) giúp nhân viên và quản lý có thể nhanh chóng tra cứu thông tin vận hành phức tạp mà không cần viết SQL hay tìm kiếm thủ công qua hàng trăm trang tài liệu PDF.
+                    </p>
+                </article>
+
+                <!-- Section 2: Technical Architecture -->
+                <article class="content-section secondary-border" id="section-architecture">
+                    <h2><i class="fa-solid fa-network-wired"></i> Kiến trúc kỹ thuật & Giải pháp</h2>
+                    <p>
+                        Để đạt được độ chính xác cao và thời gian phản hồi dưới 1.5 giây, hệ thống sử dụng mô hình kết hợp (Hybrid AI Engine):
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>RAG (Retrieval-Augmented Generation):</strong> Sử dụng <code>Azure OpenAI Text-Embedding-3-Large</code> để vector hóa tài liệu chính sách, lưu trữ vào <code>PostgreSQL pgvector</code> với chỉ mục <code>HNSW</code> để tối ưu tốc độ tìm kiếm khoảng cách cosine.
+                        </li>
+                        <li>
+                            <strong>Text-to-SQL (Vanna.ai):</strong> Huấn luyện mô hình sinh SQL dựa trên cơ sở schema dữ liệu có cấu trúc, tự động biên dịch câu hỏi tiếng Việt của người dùng thành truy vấn SQL chuẩn xác, thực thi an toàn trên Read-replica Database.
+                        </li>
+                        <li>
+                            <strong>Cơ chế định tuyến (Query Routing):</strong> Một bộ phân loại thông minh (Router) sẽ phân tích ý định câu hỏi để quyết định kích hoạt luồng RAG, luồng SQL hoặc chuyển tiếp trực tiếp sang LLM.
+                        </li>
+                        <li>
+                            <strong>Caching & Rate Limiting:</strong> Tích hợp <code>Redis</code> làm bộ nhớ đệm cho các truy vấn SQL lặp lại và kiểm soát lưu lượng request.
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Section 3: Interactive Sandbox (Triggers Terminal logs) -->
+                <section class="content-section" id="section-sandbox">
+                    <h2><i class="fa-solid fa-terminal"></i> Trình giả lập Backend API Sandbox</h2>
+                    <p>
+                        Hãy click vào các hành động mẫu bên dưới để xem hệ thống Backend API (FastAPI) phân tích ý định, sinh truy vấn SQL, truy xuất vector và trả về kết quả thời gian thực trên màn hình Terminal mô phỏng bên cạnh:
+                    </p>
+                    <div class="interactive-triggers">
+                        <button class="sandbox-btn" data-scenario="sales">
+                            <span>1. Tra cứu doanh thu (Text-to-SQL)</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <button class="sandbox-btn" data-scenario="rag">
+                            <span>2. Tra cứu chính sách đổi trả (RAG Vector Search)</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <button class="sandbox-btn" data-scenario="fallback">
+                            <span>3. Giải thích kỹ thuật (Direct LLM Routing)</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Right Column: Interactive Terminal -->
+            <aside class="terminal-column">
+                <div class="terminal">
+                    <!-- Title Bar -->
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-btn close"></span>
+                            <span class="terminal-btn minimize"></span>
+                            <span class="terminal-btn maximize"></span>
+                        </div>
+                        <div class="terminal-title">fastapi-backend@mebieco: ~</div>
+                        <div style="width: 50px;"></div> <!-- Spacer -->
+                    </div>
+                    <!-- Output Body -->
+                    <div class="terminal-body" id="terminal-body">
+                        <!-- Simulated logs will write here -->
+                    </div>
+                    <!-- Prompt Input line -->
+                    <div style="padding: 0 1.5rem 1.5rem 1.5rem; background-color: var(--cb-terminal-bg); font-family: var(--font-mono); font-size: 0.85rem; border-top: 1px solid var(--cb-border);">
+                        <div class="terminal-prompt">
+                            <span class="prompt-arrow">mebieco-api$</span>
+                            <span id="prompt-input"></span>
+                            <span class="cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../assets/js/chatbot.js"></script>
+</body>
+
+</html>
