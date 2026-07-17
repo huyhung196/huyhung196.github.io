@@ -10,172 +10,100 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/cv.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <!-- Main Header -->
-        <header>
-            <a href="../index.html" class="back-link">
-                <i class="fa-solid fa-arrow-left"></i> BACK_TO_HOME
-            </a>
-            <div class="header-logo">SYSTEM.MAIN_FRAME</div>
-        </header>
+    <!-- Navigation Header -->
+    <nav>
+        <a href="../index.html" class="logo">Hưng Huy Cao</a>
+        <a href="../index.html#projects" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">
+            <i class="fa-solid fa-arrow-left"></i> Về trang chủ
+        </a>
+    </nav>
 
-        <!-- Page Title -->
-        <section class="page-intro">
-            <h1 class="page-title">MEBIECO-AI COMPUTER VISION</h1>
-            <p class="page-subtitle">Hệ thống phân tích hình ảnh và phân đoạn đối tượng mật độ cao phân tán</p>
-        </section>
-
-        <!-- System HUD Status Bar -->
-        <section class="hud-status-bar">
-            <!-- Metric 1: CUDA load -->
-            <div class="hud-metric-card">
-                <span class="metric-label">CUDA Core Load</span>
-                <div class="metric-value">
-                    <span id="metric-cuda">78</span><span class="metric-unit">%</span>
-                </div>
-                <div class="metric-progress">
-                    <div class="metric-progress-bar" id="bar-cuda" style="width: 78%;"></div>
-                </div>
-            </div>
-
-            <!-- Metric 2: FPS -->
-            <div class="hud-metric-card">
-                <span class="metric-label">Real-time Latency</span>
-                <div class="metric-value">
-                    <span id="metric-fps">85</span><span class="metric-unit">FPS</span>
-                </div>
-                <div class="metric-progress">
-                    <div class="metric-progress-bar" id="bar-fps" style="width: 70%;"></div>
-                </div>
-            </div>
-
-            <!-- Metric 3: Temp -->
-            <div class="hud-metric-card alert-metric">
-                <span class="metric-label">GPU Temperature</span>
-                <div class="metric-value">
-                    <span id="metric-temp">64</span><span class="metric-unit">°C</span>
-                </div>
-                <div class="metric-progress">
-                    <div class="metric-progress-bar" id="bar-temp" style="width: 64%;"></div>
-                </div>
-            </div>
-
-            <!-- Metric 4: Total Detections -->
-            <div class="hud-metric-card">
-                <span class="metric-label">Accumulated Detections</span>
-                <div class="metric-value" style="font-size: 1.4rem; padding-top: 0.3rem;" id="metric-count">
-                    3,428,290
-                </div>
-                <div class="metric-progress">
-                    <div class="metric-progress-bar" style="width: 100%;"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main HUD Grid Layout -->
-        <div class="hud-grid">
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 100px; padding-bottom: 60px;">
+        <div class="glass-card" style="position: relative; padding: 2rem;">
             
-            <!-- Left Column: Details -->
-            <main class="hud-doc-panels">
-                
-                <!-- Panel 1: Project Overview -->
-                <article class="hud-panel" id="panel-overview">
-                    <h2><i class="fa-solid fa-microchip"></i> Tổng quan hệ thống</h2>
-                    <p>
-                        Dự án <strong>Mebieco-AI Computer Vision</strong> tập trung giải quyết bài toán phát hiện đối tượng và phân đoạn thực thể (Instance Segmentation) tự động trong môi trường công nghiệp mật độ cao.
-                    </p>
-                    <p>
-                        Hệ thống có khả năng xử lý đồng thời nhiều luồng RTSP camera, đếm và phân loại các đối tượng di chuyển với mật độ lên tới 3,000 thực thể trên mỗi khung hình với sai số cực nhỏ (&lt;1.5%).
-                    </p>
-                </article>
+            <!-- Memphis Decor -->
+            <div class="memphis-shape memphis-circle" style="top: -20px; right: -20px;"></div>
+            <div class="memphis-shape memphis-triangle" style="bottom: -20px; left: -20px; transform: rotate(45deg);"></div>
 
-                <!-- Panel 2: Deep Learning & Optimizations -->
-                <article class="hud-panel" id="panel-optimizations" style="border-color: rgba(255, 107, 53, 0.2);">
-                    <h2 style="border-bottom-color: rgba(255, 107, 53, 0.1);"><i class="fa-solid fa-bolt" style="color: var(--hud-secondary);"></i> Tối ưu hóa Inference & Hạ tầng</h2>
-                    <p>
-                        Để phục vụ nhu cầu xử lý thời gian thực với lượng dữ liệu camera khổng lồ, tôi đã thiết kế và triển khai kiến trúc tối ưu hóa toàn diện:
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>YOLO v8 / v11 Core:</strong> Áp dụng các mô hình pre-trained và fine-tune trên tập dữ liệu tùy chỉnh của Mebieco cho bài toán phân đoạn (segmentation) và đếm đối tượng tốc độ cao.
-                        </li>
-                        <li>
-                            <strong>ONNX Runtime & TensorRT:</strong> Chuyển đổi mô hình PyTorch sang định dạng ONNX, áp dụng lượng tử hóa FP16 để tối ưu hóa suy luận trực tiếp trên GPU CUDA, cải thiện thông lượng lên gấp 2.8 lần.
-                        </li>
-                        <li>
-                            <strong>Event-driven Architecture:</strong> Tích hợp <code>Azure Service Bus</code> để gửi nhận kết quả phân tích bất đồng bộ, giúp tách rời (decouple) luồng AI xử lý ảnh nặng nề khỏi hệ thống lưu trữ database.
-                        </li>
-                        <li>
-                            <strong>Multithreading Frame Grabber:</strong> Xây dựng luồng đọc frame camera độc lập bằng Python Multithreading giúp tránh hiện tượng trễ hình (frame lag) do suy luận AI không đồng bộ.
-                        </li>
-                    </ul>
-                </article>
+            <!-- Header -->
+            <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Mebieco-AI Computer Vision</h2>
+                <p>Hệ thống phân tích hình ảnh và phân đoạn đối tượng tốc độ cao phân tán</p>
+            </div>
 
-            </main>
+            <!-- Tags -->
+            <div class="project-tags" style="margin-bottom: 2rem; justify-content: flex-start;">
+                <span>YOLOv8 / v11</span>
+                <span>PyTorch</span>
+                <span>ONNX Runtime</span>
+                <span>TensorRT</span>
+                <span>Azure Service Bus</span>
+            </div>
 
-            <!-- Right Column: Interactive BBox Inspector -->
-            <aside class="hud-inspector-panel">
-                <!-- Tabs navigation -->
-                <div class="inspector-tabs">
-                    <button class="inspector-tab active" data-tab="dashboard">BOARD_FEED_1</button>
-                    <button class="inspector-tab" data-tab="detail-1">DETAIL_VIEW_2</button>
-                    <button class="inspector-tab" data-tab="detail-2">DETAIL_VIEW_3</button>
+            <!-- Image Gallery -->
+            <div class="project-gallery grid-3" style="margin-bottom: 2.5rem; gap: 1.5rem;">
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/cv/cv-1.png" alt="CV Dashboard 1">
                 </div>
-
-                <!-- Inspector Viewport -->
-                <div class="inspector-viewport" id="inspector-viewport">
-                    <!-- Crosshair layer -->
-                    <div class="viewport-crosshair" id="viewport-crosshair"></div>
-                    
-                    <!-- Bounding Boxes Container -->
-                    <div id="bbox-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 5;">
-                        <!-- Overlay elements will inject here -->
-                    </div>
-
-                    <!-- Underlay project image -->
-                    <img id="viewport-img" src="../assets/images/projects/cv/cv-1.png" alt="Mebieco AI CV Viewport">
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/cv/cv-2.png" alt="CV Detail 2">
                 </div>
-
-                <!-- Inspector Metadata HUD stats -->
-                <div class="inspector-stats-card">
-                    <h3><i class="fa-solid fa-radar"></i> DETECTED_OBJECT_METADATA</h3>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">Class Label</span>
-                            <span class="stat-value" id="stat-class">Package Count</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Confidence Score</span>
-                            <span class="stat-value" id="stat-conf">98.7%</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">BBox Coordinates</span>
-                            <span class="stat-value" id="stat-bbox">[230, 110, 80, 70]</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Inference Time</span>
-                            <span class="stat-value" id="stat-time">8.2ms</span>
-                        </div>
-                    </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/cv/cv-3.png" alt="CV Detail 3">
                 </div>
-            </aside>
+            </div>
 
+            <!-- Details -->
+            <div class="content-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted);">
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-microchip" style="color: var(--primary);"></i> Tổng quan hệ thống</h3>
+                <p style="margin-bottom: 1rem;">
+                    Dự án <strong>Mebieco-AI Computer Vision</strong> tập trung giải quyết bài toán phát hiện đối tượng và phân đoạn thực thể (Instance Segmentation) tự động trong môi trường công nghiệp mật độ cao.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Hệ thống có khả năng xử lý đồng thời nhiều luồng RTSP camera, đếm và phân loại các đối tượng di chuyển với mật độ lên tới 3,000 thực thể trên mỗi khung hình với sai số cực nhỏ (&lt;1.5%).
+                </p>
+
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-bolt" style="color: var(--secondary);"></i> Tối ưu hóa Inference & Hạ tầng</h3>
+                <p style="margin-bottom: 1rem;">
+                    Để phục vụ nhu cầu xử lý thời gian thực với lượng dữ liệu camera khổng lồ, tôi đã thiết kế và triển khai kiến trúc tối ưu hóa toàn diện:
+                </p>
+                <ul style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>YOLO v8 / v11 Core:</strong> Áp dụng các mô hình pre-trained và fine-tune trên tập dữ liệu tùy chỉnh của Mebieco cho bài toán phân đoạn (segmentation) và đếm đối tượng tốc độ cao.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>ONNX Runtime & TensorRT:</strong> Chuyển đổi mô hình PyTorch sang định dạng ONNX, áp dụng lượng tử hóa FP16 để tối ưu hóa suy luận trực tiếp trên GPU CUDA, cải thiện thông lượng lên gấp 2.8 lần.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Event-driven Architecture:</strong> Tích hợp <code>Azure Service Bus</code> để gửi nhận kết quả phân tích bất đồng bộ, giúp tách rời (decouple) luồng AI xử lý ảnh nặng nề khỏi hệ thống lưu trữ database.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Multithreading Frame Grabber:</strong> Xây dựng luồng đọc frame camera độc lập bằng Python Multithreading giúp tránh hiện tượng trễ hình (frame lag) do suy luận AI không đồng bộ.
+                    </li>
+                </ul>
+            </div>
+            
         </div>
     </div>
 
-    <!-- JS -->
-    <script src="../assets/js/cv.js"></script>
-</body>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">&copy; 2026 Cao Huy Hưng. | Mebieco-AI Computer Vision</p>
+        </div>
+    </footer>
 
+</body>
 </html>

@@ -10,144 +10,101 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/camera-ai.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <!-- Main Header -->
-        <header>
-            <a href="../index.html" class="back-link">
-                <i class="fa-solid fa-angle-left"></i> BACK_TO_MAIN
-            </a>
-            <div class="header-logo">
-                <i class="fa-solid fa-circle"></i> MONITORING_SYSTEM_ONLINE
-            </div>
-        </header>
+    <!-- Navigation Header -->
+    <nav>
+        <a href="../index.html" class="logo">Hưng Huy Cao</a>
+        <a href="../index.html#projects" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">
+            <i class="fa-solid fa-arrow-left"></i> Về trang chủ
+        </a>
+    </nav>
 
-        <!-- Page Title -->
-        <section class="page-intro">
-            <h1 class="page-title">MEBIECO MULTI-CAMERA ReID CONTROL STATION</h1>
-            <p class="page-subtitle">Hệ thống theo vết liên tục và nhận diện đối tượng qua góc máy camera không chồng lặp</p>
-        </section>
-
-        <!-- Control Room Grid Layout -->
-        <div class="control-room-grid">
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 100px; padding-bottom: 60px;">
+        <div class="glass-card" style="position: relative; padding: 2rem;">
             
-            <!-- Left Column: Camera Feeds Sidebar -->
-            <aside class="feed-column sidebar-panel">
-                <h3 class="panel-section-title"><i class="fa-solid fa-list"></i> Channels List</h3>
-                <div class="camera-list">
-                    <!-- Cam 1 -->
-                    <button class="camera-item" data-camera="cam-1">
-                        <div>
-                            <span class="camera-name">CAM_01 // ENTRANCE</span>
-                            <span class="camera-meta">1920x1080 @ 30FPS</span>
-                        </div>
-                        <div class="camera-status">
-                            <span class="status-dot"></span>
-                            <span>OFFLINE</span>
-                        </div>
-                    </button>
+            <!-- Memphis Decor -->
+            <div class="memphis-shape memphis-square" style="top: -20px; right: -20px; border-color: var(--memphis-green);"></div>
+            <div class="memphis-shape memphis-circle" style="bottom: -20px; left: -20px; background: var(--memphis-orange);"></div>
 
-                    <!-- Cam 2 (Active on start) -->
-                    <button class="camera-item active" data-camera="cam-2">
-                        <div>
-                            <span class="camera-name">CAM_02 // LINE_A</span>
-                            <span class="camera-meta">1920x1080 @ 30FPS</span>
-                        </div>
-                        <div class="camera-status">
-                            <span class="status-dot"></span>
-                            <span>ACTIVE</span>
-                        </div>
-                    </button>
+            <!-- Header -->
+            <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Mebieco Camera AI</h2>
+                <p>Hệ thống theo vết liên tục và nhận diện đối tượng qua góc máy camera không chồng lấp</p>
+            </div>
 
-                    <!-- Cam 3 -->
-                    <button class="camera-item" data-camera="cam-3">
-                        <div>
-                            <span class="camera-name">CAM_03 // WAREHOUSE</span>
-                            <span class="camera-meta">1920x1080 @ 30FPS</span>
-                        </div>
-                        <div class="camera-status">
-                            <span class="status-dot"></span>
-                            <span>OFFLINE</span>
-                        </div>
-                    </button>
+            <!-- Tags -->
+            <div class="project-tags" style="margin-bottom: 2rem; justify-content: flex-start;">
+                <span>TransReID</span>
+                <span>Deep Learning</span>
+                <span>CUDA</span>
+                <span>Redis</span>
+                <span>Multithreading</span>
+            </div>
+
+            <!-- Image/Video Gallery -->
+            <div style="margin-bottom: 2.5rem;">
+                <video autoplay loop muted controls style="width: 100%; border-radius: 12px; border: 4px solid var(--memphis-border); box-shadow: 12px 12px 0 var(--memphis-green);">
+                    <source src="../assets/videos/camera_ai.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ phát video.
+                </video>
+            </div>
+            
+            <div class="project-gallery grid-2" style="margin-bottom: 2.5rem; gap: 1.5rem;">
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/camera/dashboard_camera_ai.png" alt="Camera AI Dashboard">
                 </div>
-            </aside>
-
-            <!-- Center Column: CCTV Viewport & Documentation -->
-            <main class="cctv-viewport-wrapper">
-                
-                <!-- CCTV Monitor Screen -->
-                <div class="cctv-screen">
-                    <!-- CRT overlay grid scanlines -->
-                    <div class="crt-overlay"></div>
-                    
-                    <!-- HUD metadata overlays -->
-                    <div class="cctv-hud">
-                        <div class="hud-top">
-                            <div class="rec-indicator">
-                                <span class="rec-dot"></span>
-                                <span>REC</span>
-                            </div>
-                            <div id="hud-timestamp">2026-06-05 17:05:00</div>
-                        </div>
-                        <div class="hud-bottom">
-                            <div>
-                                <span id="hud-cam-id">CAM_02</span> // 
-                                <span id="hud-cam-name">MAIN_PROCESSING_LINE_A</span>
-                            </div>
-                            <div>ZOOM_X1.0</div>
-                        </div>
-                    </div>
-
-                    <!-- CCTV Video Demo -->
-                    <video autoplay loop muted controls>
-                        <source src="../assets/videos/camera_ai.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ phát video.
-                    </video>
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/camera/warning_camera_ai.png" alt="Camera AI Warning Log">
                 </div>
+            </div>
 
-                <!-- Documentation Panel -->
-                <article class="cctv-tech-desc">
-                    <h2><i class="fa-solid fa-server"></i> Chi tiết mô tả & Giải pháp kỹ thuật</h2>
-                    <p>
-                        Hệ thống **Multi-Camera Person Re-identification (ReID)** giải quyết bài toán theo dõi và định danh hành trình của một đối tượng duy nhất di chuyển qua nhiều góc quay camera khác nhau, đặc biệt là khi đi qua các **điểm mù (blind spots)** không có trường nhìn chồng lặp.
-                    </p>
-                    <p>
-                        Đây là một trong những bài toán phức tạp nhất của Computer Vision do góc chụp, điều kiện ánh sáng, dáng đi và trang phục của đối tượng có thể thay đổi đáng kể khi chuyển giao giữa các máy quay.
-                    </p>
-                    <ul>
-                        <li><strong>Deep Learning Core:</strong> Sử dụng kiến trúc <strong>TransReID</strong> (Transformer-based ReID) để trích xuất đặc trưng ngoại hình (feature embeddings) với độ chính xác vượt trội.</li>
-                        <li><strong>Multi-camera Tracking:</strong> Thuật toán so khớp khoảng cách vector Euclid và cosine giữa ảnh hiện tại và cơ sở dữ liệu vector tạm thời (Gallery) trong Redis Cache.</li>
-                        <li><strong>Multithreading Pipeline:</strong> Xây dựng hàng đợi xử lý song song để tránh trễ hình, hiển thị Dashboard trực quan trực tiếp trên luồng video đầu ra.</li>
-                        <li><strong>Tối ưu hóa:</strong> Phân tích luồng xử lý trên nền tảng GPU CUDA, tăng tốc suy luận mô hình giúp hệ thống chạy mượt mà ở độ phân giải Full HD.</li>
-                    </ul>
-                </article>
+            <!-- Details -->
+            <div class="content-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted);">
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-server" style="color: var(--primary);"></i> Chi tiết mô tả & Giải pháp kỹ thuật</h3>
+                <p style="margin-bottom: 1rem;">
+                    Hệ thống <strong>Multi-Camera Person Re-identification (ReID)</strong> giải quyết bài toán theo dõi và định danh hành trình của một đối tượng duy nhất di chuyển qua nhiều góc quay camera khác nhau, đặc biệt là khi đi qua các <strong>điểm mù (blind spots)</strong> không có trường nhìn chồng lặp.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Đây là một trong những bài toán phức tạp nhất của Computer Vision do góc chụp, điều kiện ánh sáng, dáng đi và trang phục của đối tượng có thể thay đổi đáng kể khi chuyển giao giữa các máy quay.
+                </p>
 
-            </main>
-
-            <!-- Right Column: Live Tracking Feed logs -->
-            <aside class="log-column sidebar-panel">
-                <h3 class="panel-section-title"><i class="fa-solid fa-satellite-dish"></i> Live Tracking Logs</h3>
-                <div class="log-feed-container" id="log-feed">
-                    <!-- Logs list generated dynamically by JS -->
-                </div>
-            </aside>
-
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-layer-group" style="color: var(--secondary);"></i> Tính năng & Công nghệ</h3>
+                <ul style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Deep Learning Core:</strong> Sử dụng kiến trúc <strong>TransReID</strong> (Transformer-based ReID) để trích xuất đặc trưng ngoại hình (feature embeddings) với độ chính xác vượt trội.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Multi-camera Tracking:</strong> Thuật toán so khớp khoảng cách vector Euclid và cosine giữa ảnh hiện tại và cơ sở dữ liệu vector tạm thời (Gallery) trong Redis Cache.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Multithreading Pipeline:</strong> Xây dựng hàng đợi xử lý song song để tránh trễ hình, hiển thị Dashboard trực quan trực tiếp trên luồng video đầu ra.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Tối ưu hóa:</strong> Phân tích luồng xử lý trên nền tảng GPU CUDA, tăng tốc suy luận mô hình giúp hệ thống chạy mượt mà ở độ phân giải Full HD.
+                    </li>
+                </ul>
+            </div>
+            
         </div>
     </div>
 
-    <!-- JS -->
-    <script src="../assets/js/camera-ai.js"></script>
-</body>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">&copy; 2026 Cao Huy Hưng. | Mebieco Camera AI</p>
+        </div>
+    </footer>
 
+</body>
 </html>

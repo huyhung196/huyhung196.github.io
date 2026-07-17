@@ -16,131 +16,279 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/chatbot.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <!-- Navigation Header -->
-        <header>
-            <a href="../index.html" class="back-link">
-                <i class="fa-solid fa-arrow-left"></i> Quay lại
-            </a>
-            <div class="header-logo">Hưng.dev</div>
-        </header>
+    <!-- Navigation Header -->
+    <nav>
+        <a href="../index.html" class="logo">Hưng Huy Cao</a>
+        <a href="../index.html#projects" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">
+            <i class="fa-solid fa-arrow-left"></i> Về trang chủ
+        </a>
+    </nav>
 
-        <!-- Project Hero Banner -->
-        <section class="project-banner">
-            <h1 class="project-title" id="chatbot-project-title">Mebieco AI Chatbot</h1>
-            <div class="project-meta-tags">
-                <span class="meta-tag">FastAPI</span>
-                <span class="meta-tag">Azure OpenAI</span>
-                <span class="meta-tag">RAG Architecture</span>
-                <span class="meta-tag">pgvector & HNSW</span>
-                <span class="meta-tag">Vanna.ai</span>
-                <span class="meta-tag">Redis Cache</span>
-            </div>
-        </section>
-
-        <!-- Main Project Grid -->
-        <div class="project-grid">
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 100px; padding-bottom: 60px;">
+        <div class="glass-card" style="position: relative; padding: 2rem;">
             
-            <!-- Left Column: Project Details -->
-            <main class="project-content">
-                
-                <!-- Section 1: Overview -->
-                <article class="content-section" id="section-overview">
-                    <h2><i class="fa-solid fa-circle-info"></i> Tổng quan dự án</h2>
-                    <p>
-                        <strong>Mebieco AI Chatbot</strong> là một hệ thống trợ lý ảo thông minh cấp doanh nghiệp, được thiết kế để giải quyết bài toán truy xuất thông tin tự động từ cả hai nguồn dữ liệu: 
-                        <strong>dữ liệu phi cấu trúc</strong> (chính sách, tài liệu hướng dẫn) và 
-                        <strong>dữ liệu có cấu trúc</strong> (cơ sở dữ liệu giao dịch, doanh số).
-                    </p>
-                    <p>
-                        Hệ thống hoạt động như một cầu nối ngôn ngữ tự nhiên (Natural Language Interface) giúp nhân viên và quản lý có thể nhanh chóng tra cứu thông tin vận hành phức tạp mà không cần viết SQL hay tìm kiếm thủ công qua hàng trăm trang tài liệu PDF.
-                    </p>
-                </article>
+            <!-- Memphis Decor -->
+            <div class="memphis-shape memphis-circle" style="top: -20px; right: -20px; background: var(--memphis-purple);"></div>
+            <div class="memphis-shape memphis-triangle" style="bottom: -20px; left: -20px; transform: rotate(15deg); border-color: var(--memphis-orange);"></div>
 
-                <!-- Section 2: Technical Architecture -->
-                <article class="content-section secondary-border" id="section-architecture">
-                    <h2><i class="fa-solid fa-network-wired"></i> Kiến trúc kỹ thuật & Giải pháp</h2>
-                    <p>
-                        Để đạt được độ chính xác cao và thời gian phản hồi dưới 1.5 giây, hệ thống sử dụng mô hình kết hợp (Hybrid AI Engine):
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>RAG (Retrieval-Augmented Generation):</strong> Sử dụng <code>Azure OpenAI Text-Embedding-3-Large</code> để vector hóa tài liệu chính sách, lưu trữ vào <code>PostgreSQL pgvector</code> với chỉ mục <code>HNSW</code> để tối ưu tốc độ tìm kiếm khoảng cách cosine.
-                        </li>
-                        <li>
-                            <strong>Text-to-SQL (Vanna.ai):</strong> Huấn luyện mô hình sinh SQL dựa trên cơ sở schema dữ liệu có cấu trúc, tự động biên dịch câu hỏi tiếng Việt của người dùng thành truy vấn SQL chuẩn xác, thực thi an toàn trên Read-replica Database.
-                        </li>
-                        <li>
-                            <strong>Cơ chế định tuyến (Query Routing):</strong> Một bộ phân loại thông minh (Router) sẽ phân tích ý định câu hỏi để quyết định kích hoạt luồng RAG, luồng SQL hoặc chuyển tiếp trực tiếp sang LLM.
-                        </li>
-                        <li>
-                            <strong>Caching & Rate Limiting:</strong> Tích hợp <code>Redis</code> làm bộ nhớ đệm cho các truy vấn SQL lặp lại và kiểm soát lưu lượng request.
-                        </li>
-                    </ul>
-                </article>
+            <!-- Header -->
+            <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Mebieco AI Chatbot</h2>
+                <p>Hệ thống trợ lý ảo thông minh kết hợp RAG & Text-to-SQL</p>
+            </div>
 
-                <!-- Section 3: Interactive Sandbox (Triggers Terminal logs) -->
-                <section class="content-section" id="section-sandbox">
-                    <h2><i class="fa-solid fa-terminal"></i> Trình giả lập Backend API Sandbox</h2>
-                    <p>
-                        Hãy click vào các hành động mẫu bên dưới để xem hệ thống Backend API (FastAPI) phân tích ý định, sinh truy vấn SQL, truy xuất vector và trả về kết quả thời gian thực trên màn hình Terminal mô phỏng bên cạnh:
-                    </p>
-                    <div class="interactive-triggers">
+            <!-- Tags -->
+            <div class="project-tags" style="margin-bottom: 2rem; justify-content: flex-start;">
+                <span>FastAPI</span>
+                <span>Azure OpenAI</span>
+                <span>RAG</span>
+                <span>pgvector & HNSW</span>
+                <span>Vanna.ai</span>
+                <span>Redis Cache</span>
+                <span style="background: var(--memphis-yellow);">Realtime Voice</span>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="project-gallery grid-3" style="margin-bottom: 2.5rem; gap: 1.5rem;">
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/chatbot/chatbot_ai.png" alt="Chatbot UI">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/chatbot/dashboard_chatbot_ai.png" alt="Chatbot Dashboard">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/projects/chatbot/grapha_node_chatbot_ai.png" alt="Chatbot Architecture Node">
+                </div>
+            </div>
+
+            <!-- Details -->
+            <div class="content-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted);">
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-circle-info" style="color: var(--primary);"></i> Tổng quan dự án</h3>
+                <p style="margin-bottom: 1rem;">
+                    <strong>Mebieco AI Chatbot</strong> là một hệ thống trợ lý ảo thông minh cấp doanh nghiệp, được thiết kế để giải quyết bài toán truy xuất thông tin tự động từ cả hai nguồn dữ liệu: 
+                    <strong>dữ liệu phi cấu trúc</strong> (chính sách, tài liệu hướng dẫn) và 
+                    <strong>dữ liệu có cấu trúc</strong> (cơ sở dữ liệu giao dịch, doanh số).
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Hệ thống hoạt động như một cầu nối ngôn ngữ tự nhiên (Natural Language Interface) kết hợp <strong>Voice Realtime</strong> giúp nhân viên và quản lý có thể nhanh chóng tra cứu thông tin vận hành phức tạp bằng giọng nói hoặc văn bản mà không cần viết SQL hay tìm kiếm thủ công qua hàng trăm trang tài liệu PDF.
+                </p>
+
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-network-wired" style="color: var(--secondary);"></i> Kiến trúc kỹ thuật & Giải pháp</h3>
+                <p style="margin-bottom: 1rem;">
+                    Để đạt được độ chính xác cao và thời gian phản hồi dưới 1.5 giây, hệ thống sử dụng mô hình kết hợp (Hybrid AI Engine):
+                </p>
+                <ul style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>RAG (Retrieval-Augmented Generation):</strong> Sử dụng <code>Azure OpenAI Text-Embedding-3-Large</code> để vector hóa tài liệu chính sách, lưu trữ vào <code>PostgreSQL pgvector</code> với chỉ mục <code>HNSW</code> để tối ưu tốc độ tìm kiếm khoảng cách cosine.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Text-to-SQL (Vanna.ai):</strong> Huấn luyện mô hình sinh SQL dựa trên cơ sở schema dữ liệu có cấu trúc, tự động biên dịch câu hỏi tiếng Việt của người dùng thành truy vấn SQL chuẩn xác, thực thi an toàn trên Read-replica Database.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Cơ chế định tuyến (Query Routing):</strong> Một bộ phân loại thông minh (Router) sẽ phân tích ý định câu hỏi để quyết định kích hoạt luồng RAG, luồng SQL hoặc chuyển tiếp trực tiếp sang LLM.
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">
+                        <strong>Caching & Rate Limiting:</strong> Tích hợp <code>Redis</code> làm bộ nhớ đệm cho các truy vấn SQL lặp lại và kiểm soát lưu lượng request.
+                    </li>
+                </ul>
+            </div>
+            <!-- Interactive Sandbox -->
+            <div class="interactive-section" style="margin-top: 3rem; border-top: 3px solid var(--memphis-border); padding-top: 2rem;">
+                <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-terminal" style="color: var(--primary);"></i> Trình giả lập Backend API Sandbox</h3>
+                <p style="margin-bottom: 2rem;">
+                    Hãy click vào các hành động mẫu bên dưới để xem hệ thống Backend API (FastAPI) phân tích ý định, sinh truy vấn SQL, truy xuất vector và trả về kết quả thời gian thực trên màn hình Terminal mô phỏng bên cạnh:
+                </p>
+
+                <div class="sandbox-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    
+                    <!-- Sandbox Triggers -->
+                    <div class="interactive-triggers" style="display: flex; flex-direction: column; gap: 1rem;">
                         <button class="sandbox-btn" data-scenario="sales">
                             <span>1. Tra cứu doanh thu (Text-to-SQL)</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
                         <button class="sandbox-btn" data-scenario="rag">
-                            <span>2. Tra cứu chính sách đổi trả (RAG Vector Search)</span>
+                            <span>2. Tra cứu chính sách (RAG)</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
                         <button class="sandbox-btn" data-scenario="fallback">
-                            <span>3. Giải thích kỹ thuật (Direct LLM Routing)</span>
+                            <span>3. Giải thích kỹ thuật (LLM Routing)</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
                     </div>
-                </section>
 
-            </main>
-
-            <!-- Right Column: Interactive Terminal -->
-            <aside class="terminal-column">
-                <div class="terminal">
-                    <!-- Title Bar -->
-                    <div class="terminal-header">
-                        <div class="terminal-buttons">
-                            <span class="terminal-btn close"></span>
-                            <span class="terminal-btn minimize"></span>
-                            <span class="terminal-btn maximize"></span>
-                        </div>
-                        <div class="terminal-title">fastapi-backend@mebieco: ~</div>
-                        <div style="width: 50px;"></div> <!-- Spacer -->
-                    </div>
-                    <!-- Output Body -->
-                    <div class="terminal-body" id="terminal-body">
-                        <!-- Simulated logs will write here -->
-                    </div>
-                    <!-- Prompt Input line -->
-                    <div style="padding: 0 1.5rem 1.5rem 1.5rem; background-color: var(--cb-terminal-bg); font-family: var(--font-mono); font-size: 0.85rem; border-top: 1px solid var(--cb-border);">
-                        <div class="terminal-prompt">
-                            <span class="prompt-arrow">mebieco-api$</span>
-                            <span id="prompt-input"></span>
-                            <span class="cursor"></span>
+                    <!-- Terminal Window -->
+                    <div class="terminal-column">
+                        <div class="terminal">
+                            <!-- Title Bar -->
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <span class="terminal-btn close"></span>
+                                    <span class="terminal-btn minimize"></span>
+                                    <span class="terminal-btn maximize"></span>
+                                </div>
+                                <div class="terminal-title">fastapi-backend@mebieco: ~</div>
+                                <div style="width: 50px;"></div>
+                            </div>
+                            <!-- Output Body -->
+                            <div class="terminal-body" id="terminal-body">
+                            </div>
+                            <!-- Prompt Input line -->
+                            <div class="terminal-prompt-container">
+                                <div class="terminal-prompt">
+                                    <span class="prompt-arrow">mebieco-api$</span>
+                                    <span id="prompt-input"></span>
+                                    <span class="cursor"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </aside>
-
+            </div>
+            
         </div>
     </div>
 
-    <!-- JS -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">&copy; 2026 Cao Huy Hưng. | Mebieco AI Chatbot</p>
+        </div>
+    </footer>
+
+    <style>
+        .sandbox-grid {
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .sandbox-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        .sandbox-btn {
+            font-family: inherit;
+            text-align: left;
+            background: #fff;
+            border: 3px solid var(--memphis-border);
+            color: var(--text-main);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 4px 4px 0 var(--memphis-border);
+        }
+        .sandbox-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--primary);
+            background: #fdfdfd;
+        }
+        .sandbox-btn i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        .sandbox-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .terminal-column {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        .terminal {
+            background-color: #ffffff;
+            border: 3px solid var(--memphis-border);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 8px 8px 0 var(--memphis-border);
+        }
+        .terminal-header {
+            background: var(--memphis-purple);
+            padding: 0.75rem 1.25rem;
+            border-bottom: 3px solid var(--memphis-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .terminal-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .terminal-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid var(--memphis-border);
+        }
+        .terminal-btn.close { background: #ff5f56; }
+        .terminal-btn.minimize { background: #ffbd2e; }
+        .terminal-btn.maximize { background: #27c93f; }
+        .terminal-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .terminal-body {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #111111;
+            background-color: #fdfdfd;
+        }
+        .terminal-body::-webkit-scrollbar { width: 8px; }
+        .terminal-body::-webkit-scrollbar-track { background: #f1f1f1; border-left: 2px solid var(--memphis-border); }
+        .terminal-body::-webkit-scrollbar-thumb { background: var(--memphis-border); }
+        .terminal-prompt-container {
+            padding: 0 1rem 1rem 1rem; 
+            background-color: #fdfdfd; 
+            font-family: 'Fira Code', monospace; 
+            font-size: 0.85rem; 
+            border-top: 2px solid var(--memphis-border);
+        }
+        .terminal-prompt {
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .prompt-arrow { margin-right: 0.5rem; }
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--primary);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+        .log-line { margin-bottom: 0.5rem; opacity: 0; transform: translateY(5px); animation: fadeInUp 0.3s forwards ease-out; }
+        .log-time { color: #888888; margin-right: 0.5rem; }
+        .log-info { color: #0066cc; font-weight: 600; }
+        .log-success { color: #00a86b; font-weight: 600; }
+        .log-warning { color: #f39c12; font-weight: 600; }
+        .log-error { color: #e74c3c; font-weight: 600; }
+        .log-sql { color: #8e44ad; display: block; padding-left: 1rem; border-left: 3px solid #8e44ad; margin: 0.25rem 0; font-weight: 600; background: rgba(142, 68, 173, 0.05); padding: 0.5rem; border-radius: 4px; }
+        .log-table { display: block; margin: 0.5rem 0; color: #333333; white-space: pre; font-size: 0.75rem; line-height: 1.4; background: #f5f5f5; padding: 0.5rem; border: 1px dashed #ccc; border-radius: 4px; }
+        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+    
     <script src="../assets/js/chatbot.js"></script>
 </body>
-
 </html>
