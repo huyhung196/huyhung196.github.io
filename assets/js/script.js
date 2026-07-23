@@ -247,6 +247,24 @@ function initScrollAnimations() {
         }
     );
 
+    // Staggered reveal for hobbies section
+    gsap.fromTo('#hobbies .glass-card', 
+        { opacity: 0, y: 50 },
+        {
+            scrollTrigger: {
+                trigger: '#hobbies',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out',
+            clearProps: "all"
+        }
+    );
+
     // Fade in contact section card
     gsap.fromTo('#contact .glass-card', 
         { opacity: 0, y: 40 },
@@ -333,6 +351,315 @@ document.querySelectorAll('.skill-item').forEach(item => {
 
 
 // ==========================================
+// ===== PROJECTS 3D COVERFLOW STAGE ========
+// ==========================================
+function initProjectsSlider() {
+    const stage = document.querySelector('.projects-3d-stage');
+    const prevBtn = document.querySelector('.slider-btn.prev-btn');
+    const nextBtn = document.querySelector('.slider-btn.next-btn');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    if (!stage) return;
+
+    const slides = stage.querySelectorAll('.slide-item');
+    const totalSlides = slides.length;
+    let activeIndex = 0;
+
+    function update3DPositions(index) {
+        activeIndex = (index + totalSlides) % totalSlides;
+
+        const leftIndex = (activeIndex - 1 + totalSlides) % totalSlides;
+        const rightIndex = (activeIndex + 1) % totalSlides;
+
+        slides.forEach((slide, idx) => {
+            slide.classList.remove('pos-center', 'pos-left', 'pos-right');
+            if (idx === activeIndex) {
+                slide.classList.add('pos-center');
+            } else if (idx === leftIndex) {
+                slide.classList.add('pos-left');
+            } else if (idx === rightIndex) {
+                slide.classList.add('pos-right');
+            }
+        });
+
+        dots.forEach((dot, idx) => {
+            if (idx === activeIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => update3DPositions(activeIndex - 1));
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => update3DPositions(activeIndex + 1));
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => update3DPositions(index));
+    });
+
+    // Clicking on left or right peeking card directly rotates it to center!
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', (e) => {
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            if (index !== activeIndex) {
+                update3DPositions(index);
+            }
+        });
+    });
+
+    // Touch swipe support
+    let startX = 0;
+    let isDragging = false;
+
+    stage.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    }, { passive: true });
+
+    stage.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const endX = e.changedTouches[0].clientX;
+        const diffX = endX - startX;
+        if (diffX < -40) {
+            update3DPositions(activeIndex + 1);
+        } else if (diffX > 40) {
+            update3DPositions(activeIndex - 1);
+        }
+    }, { passive: true });
+
+    // Initial state
+    update3DPositions(0);
+}
+
+
+// ==========================================
+// ===== GUIDED TOUR SYSTEM ================
+// ==========================================
+const tourSteps = [
+    {
+        target: '#home',
+        title: '👋 Xin chào!',
+        desc: 'Chào mừng bạn đến với portfolio của Huy Hưng! Mình sẽ dẫn bạn đi một vòng nhé. Cùng khám phá nào!',
+        duration: 3000
+    },
+    {
+        target: '#about',
+        title: '🧑‍💻 Giới thiệu bản thân',
+        desc: 'Đây là mục giới thiệu về mình — Kỹ sư Backend & AI với đam mê xây dựng hệ thống hiệu năng cao và tích hợp giải pháp AI thực tế.',
+        duration: 3000
+    },
+    {
+        target: '#skills',
+        title: '🛠️ Kỹ năng chuyên môn',
+        desc: 'Tất cả các công nghệ mình thành thạo: Python, FastAPI, Docker, CUDA, PostgreSQL, LLMs, và nhiều công cụ AI hiện đại khác!',
+        duration: 3000
+    },
+    {
+        target: '#experience',
+        title: '💼 Kinh nghiệm làm việc',
+        desc: 'Từ Mebisoft (AI Developer) đến ĐH Giao thông Vận tải TP.HCM — hành trình từ thiết kế hệ thống GenAI đến tối ưu hóa GPU inference.',
+        duration: 3000
+    },
+    {
+        target: '#projects',
+        title: '🚀 Dự án nổi bật',
+        desc: 'Khám phá các dự án thực tế: AI Chatbot thông minh, hệ thống Computer Vision phân tán, và Camera AI giám sát. Nhấn vào để xem chi tiết!',
+        duration: 3000
+    },
+    {
+        target: '#hobbies',
+        title: '⚽ Sở thích & Đam mê',
+        desc: 'Ngoài code, mình còn mê bóng đá, đọc sách kiến trúc hệ thống, và luôn tìm tòi các mô hình AI mới nhất!',
+        duration: 3000
+    },
+    {
+        target: '#contact',
+        title: '📬 Liên hệ',
+        desc: 'Muốn hợp tác hoặc trò chuyện? Gửi tin nhắn cho mình ngay tại đây nhé! Cảm ơn bạn đã ghé thăm portfolio! 🎉',
+        duration: 3000
+    }
+];
+
+let tourActive = false;
+let tourCurrentStep = 0;
+let tourTimerId = null;
+let tourDimEl = null;
+
+function startGuidedTour() {
+    if (tourActive) return;
+    tourActive = true;
+    tourCurrentStep = 0;
+
+    const overlay = document.getElementById('tour-overlay');
+    const bubble = document.getElementById('tour-speech-bubble');
+    const robot = document.getElementById('tour-robot-guide');
+    overlay.style.display = 'block';
+
+    // Create dim overlay
+    if (!tourDimEl) {
+        tourDimEl = document.createElement('div');
+        tourDimEl.className = 'tour-dim-overlay';
+        document.body.appendChild(tourDimEl);
+    }
+    setTimeout(() => tourDimEl.classList.add('active'), 50);
+
+    // Robot flies in from bottom of screen
+    gsap.set(robot, {
+        left: window.innerWidth / 2 - 60,
+        top: window.innerHeight + 100,
+        opacity: 1
+    });
+    gsap.to(robot, {
+        top: window.innerHeight / 2 - 80,
+        duration: 1.0,
+        ease: 'back.out(1.7)',
+        onComplete: () => {
+            // Start from top
+            gsap.to(window, {
+                duration: 0.6,
+                scrollTo: { y: 0 },
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    runTourStep(0);
+                }
+            });
+        }
+    });
+}
+
+function stopGuidedTour() {
+    tourActive = false;
+    clearTimeout(tourTimerId);
+
+    const overlay = document.getElementById('tour-overlay');
+    const bubble = document.getElementById('tour-speech-bubble');
+    const robot = document.getElementById('tour-robot-guide');
+
+    bubble.classList.remove('visible');
+
+    // Fly robot off screen
+    gsap.to(robot, {
+        y: -300,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.in',
+        onComplete: () => {
+            overlay.style.display = 'none';
+            gsap.set(robot, { clearProps: 'all' });
+        }
+    });
+
+    // Remove dim
+    if (tourDimEl) {
+        tourDimEl.classList.remove('active');
+    }
+
+    // Remove highlights
+    document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+}
+
+function runTourStep(stepIndex) {
+    if (!tourActive || stepIndex >= tourSteps.length) {
+        stopGuidedTour();
+        return;
+    }
+
+    tourCurrentStep = stepIndex;
+    const step = tourSteps[stepIndex];
+    const targetEl = document.querySelector(step.target);
+    if (!targetEl) { runTourStep(stepIndex + 1); return; }
+
+    const overlay = document.getElementById('tour-overlay');
+    const robot = document.getElementById('tour-robot-guide');
+    const bubble = document.getElementById('tour-speech-bubble');
+    const titleEl = document.getElementById('tour-title');
+    const descEl = document.getElementById('tour-desc');
+    const counterEl = document.getElementById('tour-step-counter');
+    const progressBar = document.getElementById('tour-progress-bar');
+
+    // Hide bubble during transition
+    bubble.classList.remove('visible');
+
+    // Remove previous highlights
+    document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+
+    // Scroll to target section
+    gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: step.target, offsetY: 80 },
+        ease: 'power3.inOut',
+        onComplete: () => {
+            if (!tourActive) return;
+
+            // Add highlight
+            targetEl.classList.add('tour-highlight');
+
+            // Calculate robot position — always within visible viewport
+            const rect = targetEl.getBoundingClientRect();
+            const viewW = window.innerWidth;
+            const viewH = window.innerHeight;
+
+            // Place robot at top-right of the visible section area
+            const robotX = Math.min(Math.max(rect.right - 30, viewW * 0.5), viewW - 150);
+            const robotY = Math.max(Math.min(rect.top + 20, viewH - 200), 80);
+
+            // Animate robot flying to position
+            gsap.to(robot, {
+                left: robotX,
+                top: robotY,
+                opacity: 1,
+                duration: 0.8,
+                ease: 'back.out(1.4)',
+                onStart: () => {
+                    gsap.set(robot, { opacity: 1 });
+                }
+            });
+
+            // Position bubble below robot, always inside viewport
+            setTimeout(() => {
+                if (!tourActive) return;
+
+                // Prefer placing bubble to the LEFT of the robot
+                let bubbleX = robotX - 300;
+                let bubbleY = robotY + 130;
+
+                // Clamp so bubble stays in viewport
+                bubbleX = Math.max(16, Math.min(bubbleX, viewW - 380));
+                bubbleY = Math.max(16, Math.min(bubbleY, viewH - 220));
+
+                gsap.set(bubble, {
+                    left: bubbleX,
+                    top: bubbleY
+                });
+
+                // Update content
+                titleEl.textContent = step.title;
+                descEl.textContent = step.desc;
+                counterEl.textContent = `${stepIndex + 1} / ${tourSteps.length}`;
+                progressBar.style.width = `${((stepIndex + 1) / tourSteps.length) * 100}%`;
+
+                bubble.classList.add('visible');
+            }, 500);
+
+            // Auto-advance to next step
+            tourTimerId = setTimeout(() => {
+                if (tourActive) {
+                    runTourStep(stepIndex + 1);
+                }
+            }, step.duration);
+        }
+    });
+}
+
+
+// ==========================================
 // ===== INITIALIZE ALL EFFECTS =============
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -340,4 +667,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpotlightHover();
     initMagneticButtons();
     initScrollAnimations();
+    initProjectsSlider();
 });

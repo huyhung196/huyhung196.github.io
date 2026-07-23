@@ -261,7 +261,11 @@ body::before {
 }
 
 section {
-    padding: 100px 0;
+    min-height: 100vh;
+    padding: 3.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
@@ -594,9 +598,17 @@ nav {
     color: var(--text-main);
 }
 
-.highlight-badge:nth-child(1) { box-shadow: 4px 4px 0 var(--memphis-yellow); }
-.highlight-badge:nth-child(2) { box-shadow: 4px 4px 0 var(--memphis-blue); }
-.highlight-badge:nth-child(3) { box-shadow: 4px 4px 0 var(--memphis-pink); }
+.highlight-badge:nth-child(1) {
+    box-shadow: 4px 4px 0 var(--memphis-yellow);
+}
+
+.highlight-badge:nth-child(2) {
+    box-shadow: 4px 4px 0 var(--memphis-blue);
+}
+
+.highlight-badge:nth-child(3) {
+    box-shadow: 4px 4px 0 var(--memphis-pink);
+}
 
 .highlight-badge:hover {
     transform: translate(-3px, -3px);
@@ -843,9 +855,9 @@ nav {
 }
 
 .timeline-item {
-    padding-bottom: 3rem;
+    padding-bottom: 1.6rem;
     position: relative;
-    padding-left: 3rem;
+    padding-left: 2.5rem;
     border-left: 4px solid var(--memphis-border);
 }
 
@@ -855,6 +867,7 @@ nav {
 
 .timeline-item:last-child {
     border-left: none;
+    padding-bottom: 0;
 }
 
 .timeline-dot {
@@ -888,7 +901,7 @@ nav {
     background: var(--bg-card);
     border: 3px solid var(--memphis-border);
     border-radius: 4px;
-    padding: 2rem;
+    padding: 1.2rem 1.6rem;
     box-shadow: var(--shadow-memphis);
     transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
@@ -900,40 +913,49 @@ nav {
 
 .timeline-content h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
     color: var(--text-main);
 }
 
 .timeline-company {
     color: var(--primary);
     font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
 }
 
 .timeline-date {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     display: inline-block;
     background: var(--accent);
-    padding: 0.2rem 0.8rem;
+    padding: 0.15rem 0.6rem;
     border: 2px solid var(--memphis-border);
     font-weight: 600;
+    border-radius: 4px;
 }
 
 .timeline-desc {
     color: var(--text-muted);
 }
 
+.timeline-desc p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
 .timeline-desc ul {
     list-style: none;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .timeline-desc li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
     display: flex;
     gap: 0.5rem;
     align-items: flex-start;
@@ -942,8 +964,9 @@ nav {
 .timeline-desc li::before {
     content: "▲";
     color: var(--primary);
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     margin-top: 0.3rem;
+    flex-shrink: 0;
 }
 
 /* ===== PROJECT CARDS ===== */
@@ -995,11 +1018,11 @@ nav {
         gap: 3rem;
         align-items: center;
     }
-    
-    .project-card > *:only-child {
+
+    .project-card>*:only-child {
         grid-column: 1 / -1;
     }
-    
+
     .project-header {
         margin-bottom: 0 !important;
     }
@@ -1148,16 +1171,19 @@ nav {
     box-shadow: 12px 12px 0 var(--primary);
 }
 
-/* Unique Memphis Zig-Zag Stack for Chatbot Project (Full images, no cropping) */
+/* Unique Memphis Zig-Zag Stack for Chatbot Project (Vertical stack, compact & large) */
 .chatbot-stack {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0 2rem;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
 }
 
 .chatbot-stack .gallery-item {
-    width: 95%;
+    width: 90%;
+    max-width: 330px;
     border: 4px solid var(--text-dark);
     transition: all 0.4s ease;
     cursor: pointer;
@@ -1172,48 +1198,49 @@ nav {
 }
 
 .chatbot-stack .gallery-item:nth-child(1) {
-    transform: rotate(-2deg);
-    box-shadow: 8px 8px 0 var(--memphis-yellow);
+    transform: rotate(-3deg);
+    box-shadow: 6px 6px 0 var(--memphis-yellow);
     z-index: 1;
 }
 
 .chatbot-stack .gallery-item:nth-child(2) {
-    transform: rotate(3deg);
-    box-shadow: -8px 8px 0 var(--memphis-pink);
-    margin-top: -10%;
+    transform: rotate(2deg);
+    box-shadow: -6px 6px 0 var(--memphis-pink);
+    margin-top: -12%;
     z-index: 2;
 }
 
 .chatbot-stack .gallery-item:nth-child(3) {
     transform: rotate(-1deg);
-    box-shadow: 8px 8px 0 var(--memphis-blue);
-    margin-top: -10%;
+    box-shadow: 6px 6px 0 var(--memphis-blue);
+    margin-top: -12%;
     z-index: 3;
 }
 
 .chatbot-stack .gallery-item:hover {
-    transform: scale(1.05) rotate(0deg) translateY(-10px);
+    transform: scale(1.06) rotate(0deg) translateY(-10px);
     z-index: 10 !important;
     box-shadow: 12px 12px 0 var(--primary) !important;
 }
 
-/* Unique Memphis Collage for Camera AI Project (2 images) */
+/* Unique Memphis Collage for Camera AI Project (Vertical stack, 2 images) */
 .camera-collage {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 1rem 0;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
 }
 
 .camera-collage .gallery-item {
-    width: 95%;
+    width: 90%;
+    max-width: 330px;
     border: 4px solid var(--memphis-border);
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     cursor: pointer;
     background: #fff;
-    margin: 0;
 }
 
 .camera-collage .gallery-item img {
@@ -1224,70 +1251,21 @@ nav {
 
 .camera-collage .gallery-item:nth-child(1) {
     transform: rotate(-3deg);
-    box-shadow: 8px 8px 0 var(--memphis-orange);
+    box-shadow: 6px 6px 0 var(--memphis-orange);
     z-index: 2;
 }
 
 .camera-collage .gallery-item:nth-child(2) {
-    transform: rotate(4deg);
-    box-shadow: 8px 8px 0 var(--memphis-green);
-    margin-top: -10%;
+    transform: rotate(3deg);
+    box-shadow: 6px 6px 0 var(--memphis-green);
+    margin-top: -12%;
     z-index: 1;
 }
 
 .camera-collage .gallery-item:hover {
-    transform: scale(1.05) rotate(0deg) translateY(-10px);
+    transform: scale(1.06) rotate(0deg) translateY(-10px);
     z-index: 10 !important;
     box-shadow: 12px 12px 0 var(--primary);
-}
-
-@media (min-width: 992px) {
-    .camera-collage {
-        flex-direction: column;
-    }
-    
-    .camera-collage .gallery-item {
-        width: 90%;
-        margin: 0;
-    }
-    
-    .camera-collage .gallery-item:nth-child(1) {
-        transform: rotate(-2deg);
-    }
-    
-    .camera-collage .gallery-item:nth-child(2) {
-        transform: rotate(3deg);
-        margin-top: -15%;
-    }
-
-    .chatbot-stack {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin-top: 1rem;
-        flex: 1 1 auto;
-        display: flex;
-    }
-    
-    .chatbot-stack .gallery-item {
-        width: 90%;
-        margin: 0;
-    }
-
-    .chatbot-stack .gallery-item:nth-child(1) {
-        transform: rotate(-2deg);
-    }
-
-    .chatbot-stack .gallery-item:nth-child(2) {
-        transform: rotate(3deg);
-        margin-top: -10%;
-    }
-
-    .chatbot-stack .gallery-item:nth-child(3) {
-        transform: rotate(-1deg);
-        margin-top: -10%;
-    }
 }
 
 /* Memphis project media container (side-by-side video and images) */
@@ -1688,7 +1666,7 @@ footer::before {
         grid-template-columns: 1fr;
         gap: 1.25rem;
     }
-    
+
     .about-text {
         font-size: 0.95rem;
         line-height: 1.5;
@@ -1710,7 +1688,7 @@ footer::before {
         margin: 0 auto;
         padding: 8px;
     }
-    
+
     .about-image-frame .memphis-decor-1 {
         width: 30px;
         height: 30px;
@@ -1752,7 +1730,7 @@ footer::before {
         text-align: center;
         margin-top: 15px;
     }
-    
+
     .nav-links.active {
         display: flex;
     }
@@ -1787,9 +1765,11 @@ footer::before {
     #contact {
         padding: 40px 0 30px;
     }
+
     #contact .section-title {
         margin-bottom: 1.5rem;
     }
+
     #contact .glass-card {
         padding: 1rem;
     }
@@ -1798,7 +1778,7 @@ footer::before {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .contact-info {
         gap: 1rem;
     }
@@ -1808,7 +1788,7 @@ footer::before {
         height: 35px;
         font-size: 0.9rem;
     }
-    
+
     .contact-method {
         gap: 0.8rem;
     }
@@ -1850,7 +1830,7 @@ footer::before {
         align-items: center;
         width: 100%;
     }
-    
+
     .hero-btns .btn {
         width: 100%;
         text-align: center;
@@ -1860,7 +1840,8 @@ footer::before {
     .project-card {
         padding: 1.25rem 1rem;
         margin-bottom: 2rem;
-        height: 85vh; /* Uniform 1-screen size */
+        height: 85vh;
+        /* Uniform 1-screen size */
         min-height: 500px;
         max-height: 800px;
         display: flex;
@@ -1903,7 +1884,8 @@ footer::before {
         font-size: 0.75rem !important;
     }
 
-    .cv-collage, .camera-collage {
+    .cv-collage,
+    .camera-collage {
         padding: 0;
         margin-top: 1rem;
         flex: 1 1 auto;
@@ -1920,7 +1902,7 @@ footer::before {
         flex: 1 1 auto;
         display: flex;
     }
-    
+
     .chatbot-stack .gallery-item {
         width: 90%;
         margin: 0;
@@ -1988,26 +1970,28 @@ footer::before {
     .project-gallery.grid-3 {
         grid-template-columns: 1fr;
     }
-    
+
     .timeline-item {
         padding-left: 2rem;
     }
-    
+
     .project-card {
         padding: 1.25rem;
     }
-    
+
     .project-header h3 {
         font-size: 1.5rem;
     }
-    
+
     .glass-card {
         padding: 1.25rem;
     }
 }
 
 /* ===== SPOTLIGHT HOVER EFFECTS ===== */
-.glass-card, .project-card, .timeline-content {
+.glass-card,
+.project-card,
+.timeline-content {
     position: relative;
     overflow: hidden;
 }
@@ -2022,12 +2006,10 @@ footer::before {
     z-index: 0;
     opacity: 0;
     transition: opacity 0.5s ease;
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-        rgba(255, 51, 102, 0.12) 0%,
-        rgba(0, 201, 167, 0.08) 55%,
-        transparent 100%
-    );
+    background: radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+            rgba(255, 51, 102, 0.12) 0%,
+            rgba(0, 201, 167, 0.08) 55%,
+            transparent 100%);
 }
 
 .glass-card:hover .card-spotlight,
@@ -2037,12 +2019,814 @@ footer::before {
 }
 
 /* Ensure content is positioned relative and has higher z-index to stay above spotlight */
-.glass-card > *:not(.card-spotlight), .project-card > *:not(.card-spotlight), .timeline-content > *:not(.card-spotlight) {
+.glass-card>*:not(.card-spotlight),
+.project-card>*:not(.card-spotlight),
+.timeline-content>*:not(.card-spotlight) {
     position: relative;
     z-index: 1;
 }
 
 /* Make sure project background pseudo elements are behind the spotlight */
 .project-card::before {
-    z-index: 1; /* Keep corners on top if desired, or set lower if needed. Corner is decorative, keeping it at 1 or 2 is fine. */
+    z-index: 1;
+    /* Keep corners on top if desired, or set lower if needed. Corner is decorative, keeping it at 1 or 2 is fine. */
+}
+
+/* ===== HOBBIES & INTERESTS SECTION ===== */
+#hobbies {
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+.hobbies-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Hero Showcase Card */
+.hobby-hero-card {
+    background: var(--bg-card);
+    border: 3px solid var(--memphis-border);
+    border-radius: 8px;
+    padding: 3rem;
+    box-shadow: var(--shadow-memphis-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.hobby-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hobby-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--memphis-border);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    box-shadow: 3px 3px 0 var(--memphis-border);
+    margin-bottom: 1rem;
+}
+
+.hobby-hero-content h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 1.2rem;
+    line-height: 1.25;
+}
+
+.hobby-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Hobby Badges */
+.hobby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.8rem;
+}
+
+.hobby-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.1rem;
+    background: #FFFFFF;
+    border: 2px solid var(--memphis-border);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    box-shadow: 3px 3px 0 var(--memphis-border);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hobby-badge:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--primary);
+    background: var(--bg-secondary);
+}
+
+/* Quote Box */
+.hobby-quote {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(0, 201, 167, 0.08);
+    border-left: 4px solid var(--secondary);
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.hobby-quote .quote-icon {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    margin-top: 0.2rem;
+}
+
+/* ===== PROJECTS HORIZONTAL CAROUSEL SLIDER ===== */
+.projects-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.projects-controls-top {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.projects-controls-top .slider-btn {
+    position: relative;
+    top: 0;
+    transform: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid var(--memphis-border);
+    box-shadow: 3px 3px 0 var(--memphis-border);
+    color: var(--text-main);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-controls-top .slider-btn:hover {
+    background: var(--bg-secondary);
+    box-shadow: 5px 5px 0 var(--primary);
+    transform: scale(1.1);
+}
+
+.projects-slider-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 0.2rem;
+    padding: 0 0.5rem;
+}
+
+/* Absolute position arrow buttons for projects carousel */
+.projects-slider-wrapper .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--memphis-border);
+    background: var(--bg-card);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 4px 0 var(--memphis-border);
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.projects-slider-wrapper .slider-btn.prev-btn {
+    left: -45px;
+}
+
+.projects-slider-wrapper .slider-btn.next-btn {
+    right: -45px;
+}
+
+.projects-slider-wrapper .slider-btn:hover {
+    background: var(--bg-secondary);
+    box-shadow: 6px 6px 0 var(--primary);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* Override container width specifically for Projects Section to make it wide for 3D slider */
+#projects .container {
+    max-width: 1240px !important;
+    width: 95% !important;
+}
+
+/* ===== 3D STAGE (CHIỀU RỘNG 1110PX & CHIỀU CAO 535PX ĐỂ HIỂN THỊ TRỌN VẸN VÀ GỌN GÀNG) ===== */
+.projects-3d-stage {
+    position: relative;
+    width: 100%;
+    height: 535px;
+    /* Chiều cao tăng lên 535px để cột chữ và ảnh dọc không bị nén */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    overflow: visible;
+}
+
+.projects-3d-stage .slide-item {
+    position: absolute;
+    height: 100%;
+    margin: 0 auto;
+    transition: all 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Đường cong Elastic-Bouncy (Back-Out) cực kỳ sinh động và nẩy */
+    cursor: pointer;
+    border-radius: 14px;
+    background: var(--bg-card);
+    border: 3px solid var(--memphis-border);
+    padding: 2.2rem 2.8rem;
+    display: grid;
+    grid-template-columns: 530px 1fr;
+    /* Cố định chiều rộng cột chữ 530px: Loại bỏ hoàn toàn lỗi bẻ dòng/giật chữ khi chuyển slide */
+    gap: 2.2rem;
+    align-items: center;
+    user-select: none;
+    overflow: hidden;
+    will-change: transform, opacity, width, max-width;
+    /* Tối ưu hóa hiệu năng chuyển tiếp đa thuộc tính */
+    transform-style: preserve-3d;
+    /* Kích hoạt 3D Space thực thụ cho card */
+}
+
+/* 3D Position states: Cấu hình chiều rộng thực tế khác biệt rõ rệt giữa Thẻ chính và Thẻ phụ */
+.projects-3d-stage .slide-item.pos-center {
+    width: 92%;
+    max-width: 1110px;
+    /* Thẻ chính trung tâm to rộng thoải mái */
+    transform: translateX(0) scale(1.05) rotateY(0deg);
+    z-index: 10;
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+    box-shadow: 12px 12px 0 var(--memphis-border);
+}
+
+.projects-3d-stage .slide-item.pos-left {
+    width: 62%;
+    max-width: 680px;
+    /* Thẻ phụ bên trái thu hẹp vật lý rất nhiều */
+    transform: translateX(-56%) scale(0.72) rotateY(16deg);
+    /* Thêm góc nghiêng 16 độ tạo chiều sâu 3D điện ảnh */
+    z-index: 5;
+    opacity: 0.35;
+    filter: blur(0.6px);
+    pointer-events: auto;
+    box-shadow: 4px 4px 0 var(--memphis-border);
+}
+
+.projects-3d-stage .slide-item.pos-right {
+    width: 62%;
+    max-width: 680px;
+    /* Thẻ phụ bên phải thu hẹp vật lý rất nhiều */
+    transform: translateX(56%) scale(0.72) rotateY(-16deg);
+    /* Thêm góc nghiêng -16 độ tạo chiều sâu 3D điện ảnh */
+    z-index: 5;
+    opacity: 0.35;
+    filter: blur(0.6px);
+    pointer-events: auto;
+    box-shadow: 4px 4px 0 var(--memphis-border);
+}
+
+/* Explicit hover rules to override generic .project-card:hover and maintain 3D positions */
+.projects-3d-stage .slide-item.pos-center:hover {
+    transform: translateX(0) scale(1.06) translateY(-5px) rotateY(0deg);
+    box-shadow: 16px 16px 0 var(--memphis-border);
+}
+
+.projects-3d-stage .slide-item.pos-left:hover {
+    transform: translateX(-56%) scale(0.74) translateY(-5px) rotateY(16deg);
+    opacity: 0.65;
+}
+
+.projects-3d-stage .slide-item.pos-right:hover {
+    transform: translateX(56%) scale(0.74) translateY(-5px) rotateY(-16deg);
+    opacity: 0.65;
+}
+
+/* Dots Indicator */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.6rem;
+}
+
+.slider-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 2px solid var(--memphis-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 0 var(--memphis-border);
+}
+
+.slider-dots .dot.active {
+    background: var(--primary);
+    width: 28px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 0 var(--memphis-border);
+}
+
+/* ===== HOBBIES 3-WAY GRID (1-PAGE VIEWPORT) ===== */
+.hobbies-grid-3way {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 0.85fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    width: 100%;
+}
+
+.hobby-gear-card {
+    background: var(--bg-card);
+    border: 3px solid var(--memphis-border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    box-shadow: var(--shadow-memphis);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+}
+
+.hobby-gear-card:hover {
+    box-shadow: 8px 8px 0 var(--secondary);
+}
+
+.gear-item {
+    transition: transform 0.2s ease;
+}
+
+.gear-item:hover {
+    transform: translateX(4px);
+}
+
+.hobby-hero-card {
+    background: var(--bg-card);
+    border: 3px solid var(--memphis-border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    box-shadow: var(--shadow-memphis);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hobby-visual-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+/* Standalone Goal SVG Wrapper */
+.hobby-svg-wrapper {
+    width: 100%;
+    max-width: 320px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: transform 0.3s ease;
+}
+
+.hobby-svg-wrapper:hover {
+    transform: scale(1.04);
+}
+
+.hobby-goal-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: drop-shadow(0 6px 12px rgba(0, 201, 167, 0.22));
+}
+
+/* Compact Photos Container & Photo Cards */
+.hobby-photos-container {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.hobby-photo-card {
+    position: relative;
+    flex: 1;
+    max-width: 160px;
+    height: 210px;
+    background: #FFFFFF;
+    border: 3px solid var(--memphis-border);
+    border-radius: 12px;
+    box-shadow: 6px 6px 0 var(--memphis-border);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.4rem 0.2rem 0.4rem;
+    overflow: hidden;
+}
+
+.hobby-photo-card.photo-back {
+    transform: rotate(-3deg);
+}
+
+.hobby-photo-card.photo-front {
+    transform: rotate(3deg);
+}
+
+.hobby-photo-card:hover {
+    transform: scale(1.06) rotate(0deg) translateY(-6px) !important;
+    box-shadow: 8px 8px 0 var(--primary);
+    z-index: 10;
+}
+
+/* Badge Title */
+.photo-card-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.3rem;
+    z-index: 2;
+}
+
+.photo-badge-title {
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    border: 2px solid var(--memphis-border);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    box-shadow: 2px 2px 0 var(--memphis-border);
+    color: #1A1A2E;
+}
+
+.photo-badge-title.badge-pink {
+    background: #FF6F91;
+    color: #FFFFFF;
+}
+
+.photo-badge-title.badge-yellow {
+    background: #FFD93D;
+    color: #1A1A2E;
+}
+
+/* Image Wrapper inside card */
+.photo-img-wrapper {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.photo-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.hobby-photo-card:hover .photo-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.hobby-tags-compact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+}
+
+/* Sub Hobbies Stack (Right Column) */
+.sub-hobbies-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    justify-content: space-between;
+}
+
+.sub-hobby-card {
+    background: var(--bg-card);
+    border: 3px solid var(--memphis-border);
+    border-radius: 10px;
+    padding: 1.1rem;
+    box-shadow: 4px 4px 0 var(--memphis-border);
+    transition: all 0.3s ease;
+}
+
+.sub-hobby-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--primary);
+}
+
+.sub-hobby-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.sub-hobby-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid var(--memphis-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 0 var(--memphis-border);
+    flex-shrink: 0;
+}
+
+.sub-hobby-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.sub-hobby-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hobbies-compact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .slider-btn.prev-btn {
+        left: -10px;
+    }
+
+    .slider-btn.next-btn {
+        right: -10px;
+    }
+}
+
+/* ===== GUIDED TOUR SYSTEM ===== */
+/* Tour Start Button */
+.btn-tour {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7B68EE 0%, #5B4FCF 100%);
+    color: #FFFFFF;
+    border: 3px solid var(--memphis-border);
+    box-shadow: 4px 4px 0 var(--memphis-border);
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-tour::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.btn-tour:hover {
+    transform: translate(-3px, -3px) scale(1.05);
+    box-shadow: 7px 7px 0 var(--memphis-border);
+    background: linear-gradient(135deg, #8B7CF8 0%, #6B5FDF 100%);
+}
+
+.btn-tour:active {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 var(--memphis-border);
+}
+
+.tour-robot-icon {
+    width: 28px;
+    height: 28px;
+    animation: tour-icon-bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+@keyframes tour-icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Tour Overlay */
+.tour-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99998;
+    pointer-events: none;
+}
+
+/* Floating Robot Guide — direct body child, always on top */
+.tour-robot-guide {
+    position: fixed;
+    z-index: 999999;
+    pointer-events: none;
+    opacity: 0;
+    transition: none; /* GSAP handles transitions */
+}
+
+.tour-robot-img {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 8px 24px rgba(123, 104, 238, 0.6)) brightness(1.15);
+    animation: robot-glow 2s ease-in-out infinite;
+}
+
+@keyframes robot-glow {
+    0%, 100% {
+        filter: drop-shadow(0 8px 24px rgba(123, 104, 238, 0.6)) brightness(1.1);
+    }
+    50% {
+        filter: drop-shadow(0 12px 36px rgba(123, 104, 238, 1)) drop-shadow(0 0 20px rgba(255, 200, 255, 0.8)) brightness(1.35);
+    }
+}
+
+/* Speech Bubble — direct body child, always on top */
+.tour-speech-bubble {
+    position: fixed;
+    z-index: 999999;
+    background: #FFFFFF;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 3px solid var(--memphis-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    max-width: 360px;
+    min-width: 280px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.18),
+        6px 6px 0 var(--memphis-border);
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tour-speech-bubble.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: all;
+}
+
+.tour-speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid var(--memphis-border);
+}
+
+.tour-speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 31px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 10px solid #FFFFFF;
+    z-index: 1;
+}
+
+.tour-speech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.tour-step-counter {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--memphis-purple);
+    background: rgba(123, 104, 238, 0.12);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    border: 1.5px solid rgba(123, 104, 238, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.tour-skip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1.5px solid rgba(26, 26, 46, 0.25);
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tour-skip-btn:hover {
+    background: rgba(255, 51, 102, 0.08);
+    border-color: var(--memphis-pink);
+    color: var(--memphis-pink);
+}
+
+.tour-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 0.4rem 0;
+    line-height: 1.3;
+}
+
+.tour-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin: 0 0 0.8rem 0;
+}
+
+.tour-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(26, 26, 46, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.tour-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--memphis-purple), var(--memphis-pink));
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Section highlight during tour (subtle, no outline) */
+.tour-highlight {
+    position: relative;
+    z-index: 99997;
+}
+
+
+/* Dim background during tour */
+.tour-dim-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 99996;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tour-dim-overlay.active {
+    opacity: 1;
 }
